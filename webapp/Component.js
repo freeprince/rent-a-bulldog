@@ -28,6 +28,11 @@ sap.ui.define([
             });
             this.setModel(oModelFilter, "filter");
             
+            let oModelUser = new JSONModel({
+            	EMail:""
+            });
+            this.setModel(oModelUser, "user");
+            
             let oModelKunden = new JSONModel({
             	Kunden: []
             });

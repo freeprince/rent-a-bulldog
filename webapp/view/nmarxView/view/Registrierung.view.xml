@@ -1,37 +1,36 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
 	controllerName="rab.controller.nmarxController.Registrierung">
-	<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form1"
-		width="80%">
-		<sap.ui.layout.form:content>
-			<Label text="Anrede " design="Bold"/>
-			<ComboBox placeholder="Herr / Frau" width="30%" items="{ path: 'Anrede>/AnredeCollection', sorter: { path: 'text' } }">
-				<core:Item text="{Anrede>text}"/>
-			</ComboBox>
-			<Label text="Vorname" design="Bold"/>
-			<Input value="{Kundendaten>/Vorname}" type="text"/>
-			
-			<Label text="Nachname" design="Bold"/>
-			<Input value="{Kundendaten>/Nachname}"/>
-			
-			<Label text="Straße, Hausnummer" design="Bold"/>
-			<Input  value="{Kundendaten>/Straße}"/>
-			<Input  value="{Kundendaten>/Hausnummer}"/>
-			
-			<Label text="Plz, Ort" design="Bold"/>
-			<Input  value="{Kundendaten>/Plz}"/>
-			<Input  value="{Kundendaten>/Ort}"/>
-			
-			<Label text="E-Mail" design="Bold"/>
-			<Input  value="{Kundendaten>/EMail}"/>
-			
-			<Label text="Passwort"  design="Bold"/>
-			<Input type="Password" value="{Kundendaten>/Passwort}"/>
-			
-			<Label text="Passwort bestätigen"  design="Bold"/>
-			<Input type="InputType.Password" value="{Kundendaten>/Passwortbestätigung}"/>
-		</sap.ui.layout.form:content>
-	</sap.ui.layout.form:SimpleForm>
-	<FlexBox width="auto" alignItems="Center" justifyContent="Center">
-		<Button text="Registrieren" press="registrieren" design="Bold"></Button>
-	</FlexBox>
+	<ScrollContainer id="initialScroller" height="100%" width="100%" horizontal="false" vertical="true" focusable="true">
+		<FlexBox width="auto" alignItems="Center" justifyContent="Center">
+			<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form1"
+				width="80%">
+				<sap.ui.layout.form:content>
+					<Label text="Anrede " design="Bold"/>
+					<ComboBox placeholder="Herr / Frau" width="30%" items="{ path: 'Anrede>/AnredeCollection', sorter: { path: 'text' } }">
+						<core:Item text="{Anrede>text}"/>
+					</ComboBox>
+					<Label text="Vorname" design="Bold"/>
+					<Input value="{Kundendaten>/Vorname}" type="text"/>
+					<Label text="Nachname" design="Bold"/>
+					<Input value="{Kundendaten>/Nachname}"/>
+					<Label text="Straße, Hausnummer" design="Bold"/>
+					<Input value="{Kundendaten>/Straße}"/>
+					<Input value="{Kundendaten>/Hausnummer}"/>
+					<Label text="Plz, Ort" design="Bold"/>
+					<Input value="{Kundendaten>/Plz}"/>
+					<Input value="{Kundendaten>/Ort}"/>
+					<Label text="E-Mail" design="Bold"/>
+					<Input value="{Kundendaten>/EMail}"/>
+					<Label text="Passwort" design="Bold"/>
+					<Input type="Password" value="{Kundendaten>/Passwort}"/>
+					<Label text="Passwort bestätigen" design="Bold"/>
+					<Input type="Password" value="{Kundendaten>/Passwortbestätigung}"/>
+				</sap.ui.layout.form:content>
+			</sap.ui.layout.form:SimpleForm>
+		</FlexBox>
+		<FlexBox width="auto" alignItems="Center" justifyContent="Center">
+			<Button text="Registrieren" press="registrieren" design="Bold"></Button>
+		</FlexBox>
+		<mvc:XMLView viewName="rab.view.Footer"/>
+	</ScrollContainer>
 </mvc:View>
