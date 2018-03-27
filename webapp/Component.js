@@ -38,8 +38,8 @@ sap.ui.define([
             // parameter
             let params = {
                 json: true,
-                user: "DEVELOP26",
-                password: "Th08ber!",
+                user: "",
+                password: "",
                 header: header
             };
             let oModelOdata = new ODataModel(url, params);
