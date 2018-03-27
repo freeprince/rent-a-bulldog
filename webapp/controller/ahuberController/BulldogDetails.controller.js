@@ -83,6 +83,10 @@ sap.ui.define([
 			return new Date(year, month - 1, day)
 		},
 
+		preisVorschau: function() {
+			// Vorschau für die Preise
+		},
+
 
 		onChangeDate: function(oEvent){
 			let bulldog = this.getView().getModel("bulldogDetailModel");
@@ -102,8 +106,16 @@ sap.ui.define([
 
 		onReservierungPress: function (oEvent) {
 			// Prüfen ob user eingeloggt ist ()
+			let oComponent = this.getOwnerComponent();
+			let m = oComponent.getModel("user");
+			if(m.getProperty("/EMail")=== ""){
+				MessageToast.show("Bitte anmelden");
+				let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("login");
+			}else{
+				MessageToast.show("Es geht weiter");
+			}
 
-			alert("Hallo");
 		}
 
 	});
