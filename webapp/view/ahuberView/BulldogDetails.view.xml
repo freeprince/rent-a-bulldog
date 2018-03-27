@@ -4,7 +4,7 @@
 			<Page title="Title">
 			<content><sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid1" defaultSpan="XL6 L6 M6 S12">
 			        <sap.ui.layout:content>
-			            <Image width="140px" height="140px" id="__image0"/>
+			            <Image src="images/ahuberimages/AndisLieblingsBulldog.jpg" width="820px" height="820px" id="__image0"/>
 			            <sap.ui.layout:Grid id="__grid0" defaultSpan="XL6 L6 M6 S6">
 			            <sap.ui.layout:content>
 			                <Label text="Hersteller:" width="100%" id="__label5"/>
