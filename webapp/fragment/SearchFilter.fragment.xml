@@ -1,0 +1,200 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:rab="rab.control"
+    xmlns:core="sap.ui.core">
+    <Panel
+        expandable="true">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Filterkriterien"/>
+            </Toolbar>
+        </headerToolbar>
+<!--
+        <l:Grid defaultSpan="XL2 L2 M2 S6">        
+            <Label
+                text="Hersteller"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <HBox>
+                <MultiComboBox
+                    selectedKeys="{addCrits>/hersteller}"
+                    items="{ path: 'manufacturers>/Manufacturers', 
+                                sorter: {path: 'Name'} }"
+                    selectionFinish="doFilter">
+                    <core:Item
+                        key="{manufacturers>Name}"
+                        text="{manufacturers>Name}"/>
+                </MultiComboBox>
+            </HBox>
+            <Label
+                text="Modell"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <HBox>
+                <MultiComboBox value="{addCrits>/modell}"/>
+            </HBox>
+            <Label
+                text="Klasse"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <HBox>
+                <CheckBox text="L" selected="{addCrits>/klasse/L}" select="doFilter" />
+                <CheckBox text="T" selected="{addCrits>/klasse/T}" select="doFilter" />
+            </HBox>
+            <Label
+                text="Leistung"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <HBox>
+                <Input
+                    value="{addCrits>/leistung/von}"
+                    type="Number"
+                    width="60px"
+                    change="doFilter"
+                    submit="doFilter"/>
+                <Label
+                    text="-"
+                    class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+                <Input
+                    value="{addCrits>/leistung/bis}"
+                    type="Number"
+                    width="60px"
+                    change="doFilter"
+                    submit="doFilter"/>
+                <Label
+                    text="PS"
+                    class="sapUiSmallMarginTop"/>
+            </HBox>
+            <Label
+                text="Preis/Tag"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <HBox>
+                <Input
+                    value="{addCrits>/preisProTag/von}"
+                    type="Number"
+                    width="60px"
+                    change="doFilter"
+                    submit="doFilter"/>
+                <Label
+                    text="-"
+                    class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+                <Input
+                    value="{addCrits>/preisProTag/bis}"
+                    type="Number"
+                    width="60px"
+                    change="doFilter"
+                    submit="doFilter"/>
+                <Label
+                    text="€"
+                    class="sapUiSmallMarginTop"/>
+            </HBox>
+            <Label
+                text="Beschreibung"
+                class="sapUiSmallMarginTop sapThemeHighlight-asColor"/>
+            <Input
+                value="{addCrits>/beschreibung}"
+                change="doFilter"
+                submit="doFilter" />
+        </l:Grid>
+-->
+        <l:BlockLayout>
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell>
+                    <HBox>
+                        <Label
+                            text="Hersteller"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <MultiComboBox
+                            selectedKeys="{addCrits>/hersteller}"
+                            items="{ path: 'manufacturers>/Manufacturers', 
+                                        sorter: {path: 'Name'} }"
+                            selectionFinish="doFilter">
+                            <core:Item
+                                key="{manufacturers>Name}"
+                                text="{manufacturers>Name}"/>
+                        </MultiComboBox>
+                    </HBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <HBox>
+                        <Label
+                            text="Modell"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <MultiComboBox value="{addCrits>/modell}"/>
+                    </HBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <HBox>
+                        <Label
+                            text="Klasse"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <CheckBox text="L" selected="{addCrits>/klasse/L}" select="doFilter" />
+                        <CheckBox text="T" selected="{addCrits>/klasse/T}" select="doFilter" />
+                    </HBox>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+            <l:BlockLayoutRow>
+                <l:BlockLayoutCell>
+                    <HBox>
+                        <Label
+                            text="Leistung"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <Input
+                            value="{addCrits>/leistung/von}"
+                            type="Number"
+                            width="60px"
+                            change="doFilter"
+                            submit="doFilter"/>
+                        <Label
+                            text="-"
+                            class="sapUiTinyMargin sapUiSmallMarginTopBottom sapThemeHighlight-asColor"/>
+                        <Input
+                            value="{addCrits>/leistung/bis}"
+                            type="Number"
+                            width="60px"
+                            change="doFilter"
+                            submit="doFilter"/>
+                        <Label
+                            text="PS"
+                            class="sapUiSmallMargin"/>
+                    </HBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <HBox>
+                        <Label
+                            text="Preis/Tag"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <Input
+                            value="{addCrits>/preisProTag/von}"
+                            type="Number"
+                            width="60px"
+                            change="doFilter"
+                            submit="doFilter"/>
+                        <Label
+                            text="-"
+                            class="sapUiTinyMargin sapUiSmallMarginTopBottom sapThemeHighlight-asColor"/>
+                        <Input
+                            value="{addCrits>/preisProTag/bis}"
+                            type="Number"
+                            width="60px"
+                            change="doFilter"
+                            submit="doFilter"/>
+                        <Label
+                            text="€"
+                            class="sapUiSmallMargin"/>
+                    </HBox>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                     <HBox>
+                        <Label
+                            text="Beschreibung"
+                            class="sapUiSmallMargin sapThemeHighlight-asColor"/>
+                        <Input
+                            value="{addCrits>/beschreibung}"
+                            change="doFilter"
+                            submit="doFilter">
+                        </Input>
+                    </HBox>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+    </Panel>
+</core:FragmentDefinition>

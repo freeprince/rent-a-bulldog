@@ -1,0 +1,170 @@
+<mvc:View
+    controllerName="rab.controller.Search"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:rab="rab.control">
+    <Toolbar height="50px" id="toolbarHeader">
+        <FlexBox
+            id="headerLbl"
+            width="100%"
+            alignItems="Center"
+            justifyContent="Center">
+            <VBox class="sapUiSmallMargin">
+                <Label text="{i18n>search.crits.von}"
+                    class="sapThemeHighlight-asColor" />
+                <Label
+                    id="lblSrcDate"
+                    text="{crits>/srcDate}"
+                    formatter="rab.util.Types.DATE"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text="{i18n>search.crits.bis}"
+                    class="sapThemeHighlight-asColor" />
+                <Label
+                    id="lblDstDate"
+                    text="{crits>/dstDate}"
+                    value="{crits>/dstDate}"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text="Dauer"
+                    class="sapThemeHighlight-asColor" />
+                <Label
+                    id="lblDuration"
+                    text="{crits>/duration} Tag(e)"
+                    value="{crits>/duration}"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text=""/>
+                <Link text="Ändern" press="onPressUpdateCrits" />
+            </VBox>
+        </FlexBox>
+        <FlexBox
+            id="headerDate"
+            visible="false"
+            width="100%"
+            alignItems="Center"
+            justifyContent="Center">
+            <VBox class="sapUiSmallMargin">
+                <Label text="{i18n>search.crits.von}"
+                    class="sapThemeHighlight-asColor" />
+                <DatePicker
+                    id="dateSrcDate"
+                    width="10em"
+                    minDate="{crits>/minDate/src}"
+                    value="{crits>/srcDate}"
+                    valueFormat="dd.MM.yyyy"
+                    displayFormat="dd.MM.yyyy"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text="{i18n>search.crits.bis}"
+                    class="sapThemeHighlight-asColor" />
+                <DatePicker
+                    id="dateDstDate"
+                    width="10em"
+                    minDate="{crits>/minDate/src}"
+                    value="{crits>/dstDate}"
+                    valueFormat="dd.MM.yyyy"
+                    displayFormat="dd.MM.yyyy"/>
+            </VBox>
+            <VBox class="sapUiSmallMargin">
+                <Label text=""/>
+                <Button text="Übernehmen" press="onPressSaveCrits" />
+            </VBox>
+        </FlexBox>
+    </Toolbar>
+    <ScrollContainer
+        height="95%"
+        width="auto"
+        horizontal="false"
+        vertical="true"
+        focusable="false"
+        visible="true">        
+        <!--
+        <core:Fragment fragmentName="rab.fragment.SearchFilter" type="XML"/>        
+        -->
+        <Panel>
+            <Table
+                id="searchResultList"
+                items="{bulldogs>/Bulldogs}">
+                
+                <headerToolbar>
+					<Toolbar class="filterHeader">                    
+                        <rab:SelectButton description="Hersteller" 
+                            myArray="{manufacturers>/Manufacturers}"
+                            onSelectionFinished="onFilterHerstellerFinished">
+                        </rab:SelectButton>					
+                        <rab:SelectButton description="Klasse" 
+                            myArray="{manufacturers>/Classes}"
+                            onSelectionFinished="onFilterKlasseFinished">
+                        </rab:SelectButton>					
+					</Toolbar>
+				</headerToolbar>
+                
+                <columns>
+                    <Column
+                        hAlign="End">
+                    </Column>
+                    <Column
+                        hAlign="Center"
+                        minScreenWidth="Tablet"
+                        demandPopin="true">
+                    </Column>
+                    <Column
+                        minScreenWidth="Tablet"
+                        demandPopin="true"
+                        hAlign="Center">
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <HBox
+                            class="listItemImg sapUiSmallMarginBegin">
+                            <Image
+                                src="{
+                                    path: 'bulldogs>img_url'
+                                }"
+                                alt="Bild von {bulldogs>hersteller} {bulldogs>modell}"/>
+                        </HBox>
+                        <VBox 
+                            class="listItemDesc sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                            <Title text="{bulldogs>hersteller}"/>
+                            <Title text="{bulldogs>modell}"/>
+                            <Label text="{bulldogs>farbe}"/>
+                            <Label text="{bulldogs>leistung} PS"/>
+                            <Label text="{bulldogs>beschreibung}"/>
+                        </VBox>
+                        <HBox
+                            class="listItemPrice sapUiSmallMarginBegin">
+                            <VBox
+                                class="listItemPriceValue sapUiSmallMarginEnd">
+                                <Title
+                                    text="Preis"
+                                    class="sapUiSmallMarginTopBottom" />
+                                <VBox>
+                                    <Title
+                                        text="{
+                                            path: 'bulldogs>preis_pro_tag',
+                                            formatter: '.formatter.price'
+                                        } {view>/currencyDaily}"/>
+                                    <Label
+                                        text="Gesamt: {
+                                            path: 'bulldogs>preis_gesamt',
+                                            formatter: '.formatter.price'
+                                        } {view>/currency}"/>
+                                </VBox>
+                            </VBox>
+                            <Button
+                                class="sapUiSmallMarginTopBottom sapUiSmallMarginEnd"
+                                text="Jetzt mieten"
+                                press="onDetailClicked" />
+                        </HBox>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+        <mvc:XMLView viewName="rab.view.Footer"/>
+    </ScrollContainer>
+</mvc:View>

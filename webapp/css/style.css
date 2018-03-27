@@ -1,0 +1,153 @@
+html,
+body,
+.container {
+    height: 100%;
+}
+
+.pageHeader {
+    /*height: 75px;*/
+}
+
+#parentNavContainer {
+    
+}
+
+.selectButton {
+    margin-bottom: 10px;
+}
+
+.selectButtonLabel {
+    padding: 0;
+    margin: 0;
+    width: 170px;
+    border: 3px #DEF0F2 solid;
+}
+
+.selectButtonDyn {
+    display: block;
+    position: relative;
+    background-color: white;
+    border: none;
+    width: 170px;
+    z-index: 9999;
+}
+
+.selectButtonDyn-shadow {    
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+
+.selectButtonList {
+    width: 170px;
+    list-style-type: none;    
+    margin: 0;    
+    padding: 0;
+    display: none;
+}
+
+.selectButtonList li {
+    padding: 0;
+}
+
+.selectButtonCheckBoxText {
+    display: inline-block;
+    padding-top: 15px;
+}
+
+.selectButtonConfirm {
+    margin: 0;
+    padding: 0;
+    width: 170px;
+    display: none;
+    border: 3px #DEF0F2 solid;
+}
+
+.filterHeader {
+    overflow: unset;
+}
+
+.bigLabel {
+    font-size: 6rem !important;
+}
+
+.initial-bg {			
+    background-image: url('../images/home_bg.jpg');
+    background-repeat: no-repeat;			
+    background-size: cover;
+    background-color: black;
+}
+
+.initial-list > li{
+   list-style: none;
+}
+
+.initial-list > li:before{
+   content: '';
+   display: inline-block;
+   height: 20px;
+   width: 20px;
+   margin-right: 5px;
+   background-image: url('../images/ok.png');   
+   background-size: contain;
+}
+
+.initialSearchField {
+    float: left;
+}
+
+.btnSearchIcon {
+    display: inline-block;
+}
+
+.btnSearchText {
+    width: 160px;
+    display: none;
+}
+
+.listItemImg {
+    
+}
+
+.listItemImg img {    
+    height: 120px;
+}
+
+.listItemDesc {
+    text-align: left;
+}
+
+.listItemPrice {
+    text-align: left;
+}
+
+.listItemPriceValue {
+    width: 200px;
+}
+
+@media only screen and (max-device-width: 600px) {
+
+    .listItemImg {
+        width: 100%;
+    }
+    
+    .listItemImg img {
+        height: 15rem;
+        text-align: left;
+    }
+
+}
+
+@media only screen and (max-device-width: 440px) {
+    
+    .initialSearchField {
+        float: none;
+        margin: 15px;
+    }
+
+    .btnSearchIcon {
+        display: none;
+    }
+
+    .btnSearchText {
+        display: block;
+    }
+}

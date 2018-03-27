@@ -1,0 +1,35 @@
+<mvc:View
+    controllerName="rab.controller.InitialBulldog"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <FlexBox
+        renderType="Bare"
+        justifyContent="Center"
+        height="100px">
+        <Image
+            src="{
+                path: 'featured>PictureUrl'
+            }"
+            densityAware="false"
+            press="onPicturePress"
+            width="100px"/>
+        <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+            width="100px">
+            <Title text="{featured>Name}"/>
+            <Title text="{featured>Modell}"/>
+            <Label text="{featured>Farbe}"/>
+            <Label text="{featured>Leistung} PS"/>
+        </VBox>
+        <VBox class="sapUiSmallMarginTopBottom">
+            <Title
+                text="{
+                    path: 'featured>PreisProTag',
+                    formatter: '.formatter.price'
+                } {view>/currencyDaily}"/>
+            <Button
+                class="sapUiSmallMarginEnd"
+                text="Anschauen"
+                press="onDetailClicked" />
+        </VBox>
+    </FlexBox>
+</mvc:View>

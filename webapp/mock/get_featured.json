@@ -1,0 +1,54 @@
+{
+    "Featured": [
+        {
+            "Name": "John Deere",
+            "Modell": "Oldtimer",
+            "Farbe": "Ocean-Blue",
+            "Leistung": 754,
+            "PreisProTag": 11.34,
+            "PictureUrl": "http://tym-traktoren.de/out/pictures/master/product/1/tym-t1054-traktor.jpg"
+        },
+        {
+            "Name": "John Deere",
+            "Modell": "Newtimer",
+            "Farbe": "Sky-Blue",
+            "Leistung": 494,
+            "PreisProTag": 15.75,
+            "PictureUrl": "http://tym-traktoren.de/out/pictures/master/product/1/tym-t1054-traktor.jpg"
+        }
+    ],
+    "Sales": [
+        {
+            "Name": "Porsche",
+            "Modell": "Oldtimer",
+            "Farbe": "Red",
+            "Leistung": 754,
+            "PreisProTag": 11.34,
+            "PictureUrl": "http://tym-traktoren.de/out/pictures/master/product/1/tym-t1054-traktor.jpg"
+        },
+        {
+            "Name": "Bautz",
+            "Modell": "Newtimer",
+            "Farbe": "Sky-Blue",
+            "Leistung": 494,
+            "PreisProTag": 15.75,
+            "PictureUrl": "http://cdn2.spiegel.de/images/image-439195-galleryV9-qojy-439195.jpg"
+        },
+          {
+            "Name": "Bautz",
+            "Modell": "Oldtimer",
+            "Farbe": "Ocean-Blue",
+            "Leistung": 754,
+            "PreisProTag": 11.34,
+            "PictureUrl": "https://images-na.ssl-images-amazon.com/images/I/71-8%2BuzPmwL._SX355_.jpg"
+        },
+        {
+            "Name": "Ferrari",
+            "Modell": "F1-Modell",
+            "Farbe": "Ferrari-Rot",
+            "Leistung": 1562,
+            "PreisProTag": 999.99,
+            "PictureUrl": "http://static.store.ferrari.com/media/catalog/product/cache/0/image/524x524/0dc2d03fe217f8c83829496872af24a0/L/6/L6818_2_red.jpg"
+        }
+    ]
+}

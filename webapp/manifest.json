@@ -1,0 +1,147 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "rab",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "0.0.1"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "rab.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "rab.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "rab.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true,
+				"transition": "show",
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": ["root", "initial"]
+				},
+				{
+					"pattern": "initial",
+					"name": "initial",
+					"target": "initial"
+				},
+				{
+					"pattern": "search",
+					"name": "search",
+					"target": "search"
+				},
+				{
+					"pattern": "contact",
+					"name": "contact",
+					"target": "contact"
+				},
+				{
+					"pattern": "impressum",
+					"name": "impressum",
+					"target": "impressum"
+				},
+				{
+					"pattern": "company",
+					"name": "company",
+					"target": "company"
+				}
+			],
+			"targets": {
+				"root": {
+					"viewName": "Root",
+					"viewLevel": 1
+				},
+				"initial": {
+					"viewID": "initial",
+					"viewName": "Initial",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"
+				},
+				"search": {
+					"viewId": "search",
+					"viewName": "Search",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"
+				},
+				"contact": {
+					"viewId": "contact",
+					"viewName": "Contact",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"impressum": {
+					"viewId": "impressum",
+					"viewName": "Impressum",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"company": {
+					"viewId": "company",
+					"viewName": "Company",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"transition": "show",
+					"viewLevel": 0
+				}
+			}
+		}
+	}
+}

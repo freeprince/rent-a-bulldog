@@ -1,0 +1,119 @@
+<mvc:View
+    controllerName="rab.controller.Initial"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc">
+    <ScrollContainer
+        id="initialScroller"
+        height="100%"
+        width="100%"
+        horizontal="false"
+        vertical="true"
+        focusable="false">
+        <FlexBox
+            id="initialBoxTop"
+            height="400px"
+            width="auto"
+            alignItems="Center"
+            justifyContent="Center"
+            class="initial-bg">
+            <Panel>
+                <VBox class="sapUiSmallMarginTopBottom initialSearchField">
+                    <Label 
+                        text="{i18n>search.crits.von}"
+                        class="sapThemeHighlight-asColor" />
+                    <DatePicker
+                        id="dateSource"
+                        width="10em"
+                        minDate="{crits>/minDate/src}"
+                        value="{crits>/srcDate}"
+                        valueFormat="dd.MM.yyyy"
+                        displayFormat="dd.MM.yyyy"/>
+                </VBox>
+                <VBox class="sapUiSmallMargin initialSearchField">
+                    <Label 
+                        text="{i18n>search.crits.bis}"
+                        class="sapThemeHighlight-asColor" />
+                    <DatePicker
+                        id="dateDest"
+                        width="10em"
+                        minDate="{crits>/minDate/dst}"
+                        value="{crits>/dstDate}"
+                        valueFormat="dd.MM.yyyy"
+                        displayFormat="dd.MM.yyyy"/>
+                </VBox>
+                <VBox class="sapUiSmallMarginTopBottom initialSearchField">
+                    <Label 
+                        text="" 
+                        class="btnSearchIcon sapThemeHighlight-asColor" />
+                    <Button
+                        class="btnSearchIcon"
+                        icon="sap-icon://search"
+                        press="onSearchClicked"/>
+                    <Button
+                        class="btnSearchText"
+                        text="{i18n>search.button}"
+                        press="onSearchClicked"/>
+                </VBox>
+            </Panel>
+        </FlexBox>
+        <Title
+            text="Warum Rent a Bulldog"
+            titleStyle="H2"
+            class="sapUiSmallMargin"/>
+        <HBox>
+            <Carousel 
+                id="welcomeCarousel" 
+                class="sapUiContentPadding" 
+                loop="true" 
+                width="400px"
+                visible="{=!${device>/system/phone}}">
+                <pages>
+                    <Image src="{img>/img1}" alt="Bulldog Carousel Image 1"/>
+                    <Image src="{img>/img2}" alt="Bulldog Carousel Image 2"/>
+                    <Image src="{img>/img3}" alt="Bulldog Carousel Image 3"/>
+                </pages>
+            </Carousel>
+            <core:HTML content="
+                    &lt;ul class=&quot;initial-list&quot;&gt;
+                        &lt;li class=&quot;initial-haken sapUiLargeMarginTopBottom&quot; &gt;Moderne Traktoren günstig mieten anstatt teuer kaufen&lt;/li&gt;
+                        &lt;li class=&quot;initial-haken sapUiLargeMarginTopBottom&quot; &gt;Große Auswahl an Traktoren&lt;/li&gt;
+                        &lt;li class=&quot;initial-haken sapUiLargeMarginTopBottom&quot; &gt;Top gewartet&lt;/li&gt;                    
+                        &lt;li class=&quot;initial-haken sapUiLargeMarginTopBottom&quot; &gt;Keine lästigen Unterhaltskosten&lt;/li&gt;                    
+                    &lt;/ul&gt;"/>
+        </HBox>
+        <Title
+            text="Neue Bulldogs"
+            titleStyle="H2"
+            class="sapUiSmallMargin"/>
+        <l:BlockLayout
+            background="Dashboard">
+            <l:BlockLayoutRow
+                id="promotedRow"
+                content="{featured>/Featured}">
+                <l:content>
+                    <l:BlockLayoutCell>
+                        <mvc:XMLView viewName="rab.view.InitialBulldog"/>
+                    </l:BlockLayoutCell>
+                </l:content>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+        <Title
+            text="Meist gemietet"
+            titleStyle="H2"
+            class="sapUiSmallMargin"/>
+        <l:BlockLayout
+            background="Dashboard">
+            <l:BlockLayoutRow
+                content="{featured>/Sales}">
+                <l:content>
+                    <l:BlockLayoutCell>
+                        <mvc:XMLView viewName="rab.view.InitialBulldog"/>
+                    </l:BlockLayoutCell>
+                </l:content>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+        <mvc:XMLView viewName="rab.view.Footer"/>
+    </ScrollContainer>
+</mvc:View>

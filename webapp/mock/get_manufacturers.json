@@ -1,0 +1,44 @@
+{
+    "Manufacturers": [
+        {
+            "Name": "John Deere",
+            "Logo": "https://www.deere.de/assets/images/common/our-company/history/JD_Trademark_Current_884x663.png"
+        },
+        {
+            "Name": "Deutz",
+            "Logo": "https://upload.wikimedia.org/wikipedia/de/thumb/9/90/Deutz_Logo.svg/1200px-Deutz_Logo.svg.png"
+        },
+        {
+            "Name": "Claas",
+            "Logo": "http://www.claas.de/blueprint/servlet/image/1298458/inline_m_m/400/400/73eb8d46c405f4f6bc8c88525c508f52/ZI/company-history-1969-1988-article-2-pic.jpg"
+        },
+        {
+            "Name": "Bautz",
+            "Logo": "https://upload.wikimedia.org/wikipedia/de/9/9c/Bautz_Logo.svg"
+        },
+        {
+            "Name": "Porsche",
+            "Logo": ""
+        },
+        {
+            "Name": "Lamborghini",
+            "Logo": ""
+        },
+        {
+            "Name": "STEYR",
+            "Logo": ""
+        },
+        {
+            "Name": "New Holland",
+            "Logo": ""
+        }
+    ],
+    "Classes": [
+        {
+            "Name": "L"
+        },
+        {
+            "Name": "T"
+        }
+    ]
+}

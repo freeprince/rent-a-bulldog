@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<link rel="icon" href="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/tractor-512.png">
+	<link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/tractor-512.png">
+	<title>Rent a Bulldog</title>
+	<!--
+		ux5:
+		src="../../resources/sap-ui-core.js"
+	-->
+	<script id="sap-ui-bootstrap" 
+		src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" 
+		data-sap-ui-theme="sap_bluecrystal"
+		data-sap-ui-libs="sap.m" 
+		data-sap-ui-compatVersion="edge" 
+		data-sap-ui-preload="async" 
+		data-sap-ui-resourceroots='{
+            "rab": "./"
+        }'>
+	</script>
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			new sap.m.Shell({
+				title: "Rent a Bulldog",
+				app: new sap.ui.core.ComponentContainer({
+					name: "rab",
+					settings: {
+						id: "rab"
+					}
+				})
+			}).placeAt("content");
+		});
+	</script>
+</head>
+
+<body id="content" class="sapUiBody">
+</body>
+
+</html>
+
+<!--
+############
+#  Themes  #
+############
+
+sap_belize
+sap_belize_plus
+sap_bluecrystal
+sap_hcb
+
+#####################
+#    sap-margins    #
+#####################
+
+Full Margins
+++++++++++++++++++
+
+This is used if you want to clear an area all round your control, and this consists of:
+sapUiTinyMargins
+sapUiSmallMargins
+sapUiMediumMargins
+sapUiLargeMargins
+
+Single-Sided Margins
+++++++++++++++++++
+
+This would only clear only one side of the control plus you will have to define which part of the control has to get the margin, for eg top, bottom, begin, end. These are the classes:
+sapUiTinyMarginTop
+sapUiTinyMarginBottom
+sapUiTinyMarginBegin
+sapUiTinyMarginEnd
+sapUiSmallMarginTop
+sapUiSmallMarginBottom
+sapUiSmallMarginBegin
+sapUiSmallMarginEnd
+sapUiMediumMarginTop
+sapUiMediumMarginBottom
+sapUiMediumMarginBegin
+sapUiMediumMarginEnd
+sapUiLargeMarginTop
+sapUiLargeMarginBottom
+sapUiLargeMarginBegin
+sapUiLargeMarginEnd
+
+Two-Sided Margins
+++++++++++++++++++
+
+This would clear spaces on the two sides, either top and bottom or begin or end. And these are the classes provided by sap:
+sapUiTinyMarginBeginEnd
+sapUiTinyMarginTopBottom
+sapUiSmallMarginBeginEnd
+sapUiSmallMarginTopBottom
+sapUiMediumMarginBeginEnd
+sapUiMediumMarginTopBottom
+sapUiLargeMarginBeginEnd
+sapUiLargeMarginTopBottom
+
+Source: http://www.sapui5tutors.com/2016/08/margins-and-padding-in-sapui5.html
+ -->
