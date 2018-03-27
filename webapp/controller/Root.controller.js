@@ -10,6 +10,14 @@ sap.ui.define([
 		onHeaderPressed: function() {						
 			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("");
+		},
+		onLogin: function() {
+			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("login");
+		},
+		onRegister: function() {
+			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("register");
 		}
 	});
 });

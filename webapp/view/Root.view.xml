@@ -15,8 +15,8 @@
                     </HBox>
                 </contentLeft>
                 <contentRight>
-                    <Button text="Anmelden" />
-                    <Button text="Registrieren" />
+                    <Button text="Anmelden" press="onLogin" />
+                    <Button text="Registrieren" press="onRegister" />
                 </contentRight>
                 <contentMiddle></contentMiddle>
             </Bar>

@@ -89,6 +89,21 @@
 					"pattern": "company",
 					"name": "company",
 					"target": "company"
+				},
+				{
+					"pattern": "login",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "details",
+					"name": "details",
+					"target": "details"
+				},
+				{
+					"pattern": "register",
+					"name": "register",
+					"target": "register"
 				}
 			],
 			"targets": {
@@ -131,6 +146,31 @@
 				"company": {
 					"viewId": "company",
 					"viewName": "Company",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"login": {
+					"viewId": "login",
+					"viewName": "Login",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"register": {
+					"viewId": "register",
+        			"viewPath": "rab.view.nmarxView.view",
+					"viewName": "Registrierung",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
+				"details": {
+					"viewId": "details",
+					"viewName": "BulldogDetails",
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
