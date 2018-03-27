@@ -153,6 +153,7 @@
 				},
 				"login": {
 					"viewId": "login",
+        			"viewPath": "rab.view.nmarxView.view",
 					"viewName": "Login",
 					"viewLevel": 2,
 					"parent": "root",
