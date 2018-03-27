@@ -27,6 +27,11 @@ sap.ui.define([
                 Klasse: []
             });
             this.setModel(oModelFilter, "filter");
+            
+            let oModelKunden = new JSONModel({
+            	Kunden: []
+            });
+            this.setModel(oModelKunden,"Kundendaten");
 
 			// Webservice Url
             let url = window.location.protocol + "//ux5.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
