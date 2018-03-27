@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("rab.view.ahuberView.controller.BulldogDetails", {
+	return Controller.extend("rab.controller.ahuberController.BulldogDetails", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
