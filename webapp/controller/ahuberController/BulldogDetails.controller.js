@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageToast"
-], function (JSONModel, Controller, MessageToast) {
+	"sap/m/MessageToast",
+	"rab/model/ahuberModels"
+], function (JSONModel, Controller, MessageToast, ahuberModels) {
 	"use strict";
 
 	return Controller.extend("rab.controller.ahuberController.BulldogDetails", {
@@ -16,19 +17,8 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			// Model anlegen
-			var bulldogDetailModel = new JSONModel({
-				id: "",
-				hersteller: "",
-				modell: "",
-				leistung: "",
-				fuehrerscheinklasse: "",
-				farbe: "",
-				tagespauschale: "",
-				preiProStunde: "",
-				beschreibung: "",
-				von: "",
-				bis: ""
-			});
+			var bulldogDetailModel = ahuberModels.createBulldogModel();
+
 
 			// Model befüllen
 			bulldogDetailModel.setProperty("/hersteller", "Deutz");
