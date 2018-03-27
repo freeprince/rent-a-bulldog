@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("rab.view.nmarxView.view.nmarxView.controller.Registrierung", {
+	return Controller.extend("rab.view.nmarxView.controller.Registrierung", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
