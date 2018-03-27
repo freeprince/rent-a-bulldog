@@ -170,6 +170,7 @@
 				},
 				"details": {
 					"viewId": "details",
+        			"viewPath": "rab.view.ahuberView",
 					"viewName": "BulldogDetails",
 					"viewLevel": 2,
 					"parent": "root",

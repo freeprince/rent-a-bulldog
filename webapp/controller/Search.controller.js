@@ -9,6 +9,8 @@ sap.ui.define([
     "use strict";
     return Controller.extend("rab.controller.Search", {
         
+        useOData: false,
+
         formatter: Formatter,
         
         onInit: function () {
@@ -61,6 +63,9 @@ sap.ui.define([
             
             let selectedBulldog = aBulldogs[id];
             console.log("Search: selectedBulldog", selectedBulldog);
+
+            let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("details");
         },
         onPressUpdateCrits: function() {
             let show = true;
@@ -97,39 +102,50 @@ sap.ui.define([
             let iDays = oModelCrits.getProperty("/duration");
             console.log("Search#doSearch: iDays=" + iDays);
 
-            // one with id            
-            // oService.read("/SearchResultSet(32)", {
-            // multiple
-            oService.read("/SearchResultSet", {
-                // filters: [ new sap.ui.model.Filter({
-                //     path: 'von',
-                //     operator: sap.ui.model.FilterOperator.EQ,
-                //     value1: '01.01.2018'
-                // })],
-                success: function(oRetrievedResult) {
-                    console.log("Search result success");
-                    let bulldogs = oRetrievedResult.results;
-                    bulldogs = {Bulldogs: bulldogs};
-                    console.log(bulldogs);                    
-                    
-                    for (let i = 0; i < bulldogs.Bulldogs.length; i++) {                        
-                        let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
-                        preis_gesamt = preis_gesamt * iDays;
-                        preis_gesamt = preis_gesamt.toFixed(2);
-                        bulldogs.Bulldogs[i].preis_gesamt = preis_gesamt;
+            if (this.useOData) {
+                // one with id            
+                // oService.read("/SearchResultSet(32)", {
+                // multiple
+                oService.read("/SearchResultSet", {
+                    // filters: [ new sap.ui.model.Filter({
+                    //     path: 'von',
+                    //     operator: sap.ui.model.FilterOperator.EQ,
+                    //     value1: '01.01.2018'
+                    // })],
+                    success: function(oRetrievedResult) {
+                        console.log("Search result success");
+                        let bulldogs = oRetrievedResult.results;
+                        bulldogs = {Bulldogs: bulldogs};
+                        console.log(bulldogs);                    
+                        
+                        for (let i = 0; i < bulldogs.Bulldogs.length; i++) {                        
+                            let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
+                            preis_gesamt = preis_gesamt * iDays;
+                            preis_gesamt = preis_gesamt.toFixed(2);
+                            bulldogs.Bulldogs[i].preis_gesamt = preis_gesamt;
+                        }
+                        
+                        let oModel = new JSONModel();            
+                        oModel.setData(bulldogs);
+                        
+                        let list = that.getView().byId("searchResultList");
+                        list.setModel(oModel, "bulldogs");
+                    },
+                    error: function(oError) {
+                        console.log("Search result error");
+                        console.log(oError);
                     }
-                    
-                    let oModel = new JSONModel();            
-                    oModel.setData(bulldogs);
-                    
+                });
+            } else {
+                let that = this;
+                let oModel = new JSONModel();
+                oModel.loadData("./mock/get_search.json");
+                oModel.attachRequestCompleted(function () {
                     let list = that.getView().byId("searchResultList");
                     list.setModel(oModel, "bulldogs");
-                },
-                error: function(oError) {
-                    console.log("Search result error");
-                    console.log(oError);
-                }
-            });
+                });
+    
+            }
         },
         onFilterHerstellerFinished: function(oEvent) {
             let aSelected = oEvent.getParameter("value");
