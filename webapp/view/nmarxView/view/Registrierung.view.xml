@@ -1,9 +1,25 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	controllerName="rab.view.nmarxView.view.nmarxView.controller.Registrierung" xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="rab.view.nmarxView.controller.Registrierung">
 	<App>
-		<pages>
-			<Page title="Title">
-				<content></content>
+		<pages><Page title="Registierung" backgroundDesign="List">
+				<content>
+				    <sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form0">
+				        <sap.ui.layout.form:content>
+				            <core:Title id="__title1"/>
+				            <Label text="Label 1" id="__label3"/>
+				            <Input width="100%" id="__input0" fieldWidth="20%"/>
+				            <Input width="100%" id="__input1"/>
+				            <Label text="Label 2" id="__label4"/>
+				            <Input width="100%" id="__input2"/></sap.ui.layout.form:content>
+				    </sap.ui.layout.form:SimpleForm><Label text="Ihre Daten: " width="100%" id="__label0"/>
+				    <Label text="Anrede * " width="100%" id="__label1"/>
+				    <ComboBox selectedItem="Element sap.ui.core.ListItem#__item0" value="List Item 1" selectedKey="item1" selectedItemId="__item0" id="__box0" placeholder="Herr">
+				        <items>
+				            <core:ListItem text="List Item 1" key="item1" id="__item0"/>
+				            <core:ListItem text="List Item 2" key="item2" id="__item1"/>
+				            <core:ListItem text="List Item 3" key="item3" id="__item2"/></items>
+				    </ComboBox>
+				    <Label text="Vorname *" width="100%" id="__label2"/>
+				</content>
 			</Page>
 		</pages>
 	</App>
