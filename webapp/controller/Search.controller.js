@@ -8,11 +8,11 @@ sap.ui.define([
 ], function (Controller, MessageToast, JSONModel, ResourceModel, Utils, Formatter) {
     "use strict";
     return Controller.extend("rab.controller.Search", {
-        
+
         useOData: false,
 
         formatter: Formatter,
-        
+
         onInit: function () {
             this.doSearch();
 
@@ -29,14 +29,14 @@ sap.ui.define([
             this.getView().setModel(new JSONModel({
                 Classes: [{ Name: "L" }, { Name: "T" }]
             }), "classes");
-            
-			let oViewModel = new JSONModel({
+
+            let oViewModel = new JSONModel({
                 currency: "€",
                 currencyDaily: "€ pro Tag"
-			});
-			this.getView().setModel(oViewModel, "view");
+            });
+            this.getView().setModel(oViewModel, "view");
         },
-        onItemPress: function(oEvent) {
+        onItemPress: function (oEvent) {
             console.log("Search#onItemPress");
             console.log(oEvent);
             // The actual Item
@@ -47,12 +47,12 @@ sap.ui.define([
             let sName = oContext.getProperty("Name");
             console.log(sName);
         },
-        onDetailClicked: function(oEvent) {
+        onDetailClicked: function (oEvent) {
             MessageToast.show("Warenkorb ist noch nicht bereit!");
             let src = oEvent.getSource();
             console.log(oEvent);
             let aParts = src.sId.split("-");
-            let id = aParts[aParts.length-1];
+            let id = aParts[aParts.length - 1];
             console.log("id:" + id);
 
             // TODO Filter beachten
@@ -60,14 +60,14 @@ sap.ui.define([
             let oModel = list.getModel("bulldogs");
             let oData = oModel.oData;
             let aBulldogs = oData.Bulldogs;
-            
+
             let selectedBulldog = aBulldogs[id];
             console.log("Search: selectedBulldog", selectedBulldog);
 
             let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("details");
+            oRouter.navTo("details");
         },
-        onPressUpdateCrits: function() {
+        onPressUpdateCrits: function () {
             let show = true;
             let headerDate = this.getView().byId("headerDate");
             headerDate.setVisible(show);
@@ -76,7 +76,7 @@ sap.ui.define([
             let toolbar = this.getView().byId("toolbarHeader");
             toolbar.setHeight("80px");
         },
-        onPressSaveCrits: function() {
+        onPressSaveCrits: function () {
             let show = false;
             let headerDate = this.getView().byId("headerDate");
             headerDate.setVisible(show);
@@ -88,14 +88,14 @@ sap.ui.define([
             let oComponent = this.getOwnerComponent();
             let m = oComponent.getModel("crits");
 
-            let diffDays = Utils.getDiffDays(m.getData().srcDate,m.getData().dstDate);
+            let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
             m.setProperty("/duration", diffDays);
-            
+
             this.doSearch();
         },
         doSearch: function () {
-            let that = this;            
-            
+            let that = this;
+
             let oComponent = this.getOwnerComponent();
             let oService = oComponent.getModel("service");
             let oModelCrits = oComponent.getModel("crits");
@@ -112,26 +112,26 @@ sap.ui.define([
                     //     operator: sap.ui.model.FilterOperator.EQ,
                     //     value1: '01.01.2018'
                     // })],
-                    success: function(oRetrievedResult) {
+                    success: function (oRetrievedResult) {
                         console.log("Search result success");
                         let bulldogs = oRetrievedResult.results;
-                        bulldogs = {Bulldogs: bulldogs};
-                        console.log(bulldogs);                    
-                        
-                        for (let i = 0; i < bulldogs.Bulldogs.length; i++) {                        
+                        bulldogs = { Bulldogs: bulldogs };
+                        console.log(bulldogs);
+
+                        for (let i = 0; i < bulldogs.Bulldogs.length; i++) {
                             let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
                             preis_gesamt = preis_gesamt * iDays;
                             preis_gesamt = preis_gesamt.toFixed(2);
                             bulldogs.Bulldogs[i].preis_gesamt = preis_gesamt;
                         }
-                        
-                        let oModel = new JSONModel();            
+
+                        let oModel = new JSONModel();
                         oModel.setData(bulldogs);
-                        
+
                         let list = that.getView().byId("searchResultList");
                         list.setModel(oModel, "bulldogs");
                     },
-                    error: function(oError) {
+                    error: function (oError) {
                         console.log("Search result error");
                         console.log(oError);
                     }
@@ -144,40 +144,40 @@ sap.ui.define([
                     let list = that.getView().byId("searchResultList");
                     list.setModel(oModel, "bulldogs");
                 });
-    
+
             }
         },
-        onFilterHerstellerFinished: function(oEvent) {
+        onFilterHerstellerFinished: function (oEvent) {
             let aSelected = oEvent.getParameter("value");
             console.log("Search#onFilterFinished:", aSelected);
-            
-            let m  = this.getView().getModel("addCrits");
+
+            let m = this.getView().getModel("addCrits");
             m.setProperty("/hersteller", aSelected);
-            
+
             let oComponent = this.getOwnerComponent();
             let oModel = oComponent.getModel("filter");
             oModel.setProperty("/Hersteller", aSelected);
 
             this.doFilter();
         },
-        onFilterKlasseFinished: function(oEvent) {
+        onFilterKlasseFinished: function (oEvent) {
             let aSelected = oEvent.getParameter("value");
             console.log("Search#onFilterFinished:", aSelected);
 
-            let m  = this.getView().getModel("addCrits");
+            let m = this.getView().getModel("addCrits");
 
             m.setProperty("/klasse/L", false);
             m.setProperty("/klasse/L", false);
 
-            for(let sValue in aSelected) {
-                sValue 
+            for (let sValue in aSelected) {
+                sValue
                 if (sValue == 'T') {
                     m.setProperty("/klasse/T", true);
                 } else if (sValue == 'L') {
                     m.setProperty("/klasse/L", true);
                 }
             }
-            
+
             let oComponent = this.getOwnerComponent();
             let oModel = oComponent.getModel("filter");
             oModel.setProperty("/Klasse", aSelected);

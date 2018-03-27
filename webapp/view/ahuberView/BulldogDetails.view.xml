@@ -22,7 +22,7 @@
 			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Preis pro Stunde:" width="100%" id="__label0_copy6"/>
 			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/preisProStunde}" width="100%" id="__label0_copy7"/>
 			                <Label text="Beschreibung:" width="100%" id="__label2"/>
-			                <Label text="{bulldogDetailModel>/beschreibung}" width="100%" id="__label3"/>
+			                <Label text="{bulldogDetailModel>/beschreibung}" wrapping="true" width="100%" id="__label3"/>
 			            </sap.ui.layout:content>
 			            </sap.ui.layout:Grid></sap.ui.layout:content>
 			    </sap.ui.layout:Grid>
@@ -44,6 +44,7 @@
                                     id="__picker0_copy"
                                     valueFormat="dd.MM.yyyy"
                                     displayFormat="dd.MM.yyyy"
+                                    change="onChangeDate"
                                     value="{bulldogDetailModel>/von}"
                                 />
 			                </items>
@@ -69,6 +70,7 @@
                                     valueFormat="dd.MM.yyyy"
                                     displayFormat="dd.MM.yyyy"
                                     value="{bulldogDetailModel>/bis}"
+                                    change="onChangeDate"
                                 />
 			                </items>
 			            </HBox>
@@ -83,8 +85,8 @@
                             press="onReservierungPress"/>
                     </sap.ui.layout:content>
 			    </sap.ui.layout:Grid>
-			    <Label text="Verfügbarkeit:" width="100%" id="__label1"/>
-			    <sap.ui.unified:Calendar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.unified="sap.ui.unified" id="__calendar0_copy"/>
+			    <!--<Label text="Verfügbarkeit:" width="100%" id="__label1"/>
+			    <sap.ui.unified:Calendar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.unified="sap.ui.unified" id="__calendar0_copy"/> !-->
 			</content>
 			</Page>
 		</pages>
