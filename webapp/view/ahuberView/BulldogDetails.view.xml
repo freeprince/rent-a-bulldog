@@ -10,19 +10,19 @@
 			                <Label text="Hersteller:" width="100%" id="__label5"/>
 			                <Label text="{bulldogDetailModel>/hersteller}" width="100%" id="__label6"/>
 			                <Label text="Modell:" width="100%" id="__label10"/>
-			                <Label text="{bulldogDetailModel>/modell" width="100%" id="__label9"/>
+			                <Label text="{bulldogDetailModel>/modell}" width="100%" id="__label9"/>
 			                <Label text="Leistung:" width="100%" id="__label11"/>
-			                <Label text="{bulldogDetailModel>/leistung" width="100%" id="__label7"/>
+			                <Label text="{bulldogDetailModel>/leistung}" width="100%" id="__label7"/>
 			                <Label text="Führerscheinklasse:" width="100%" id="__label0"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/fuehrerscheinklasse" width="100%" id="__label0_copy"/>
+			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/fuehrerscheinklasse}" width="100%" id="__label0_copy"/>
 			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Farbe:" width="100%" id="__label0_copy2"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/farbe" width="100%" id="__label0_copy3"/>
+			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/farbe}" width="100%" id="__label0_copy3"/>
 			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Tagespauschale:" width="100%" id="__label0_copy4"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/tagespauschale" width="100%" id="__label0_copy5"/>
+			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/tagespauschale}" width="100%" id="__label0_copy5"/>
 			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Preis pro Stunde:" width="100%" id="__label0_copy6"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/preisProStunde" width="100%" id="__label0_copy7"/>
+			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/preisProStunde}" width="100%" id="__label0_copy7"/>
 			                <Label text="Beschreibung:" width="100%" id="__label2"/>
-			                <Label text="{bulldogDetailModel>/beschreibung" width="100%" id="__label3"/>
+			                <Label text="{bulldogDetailModel>/beschreibung}" width="100%" id="__label3"/>
 			            </sap.ui.layout:content>
 			            </sap.ui.layout:Grid></sap.ui.layout:content>
 			    </sap.ui.layout:Grid>
