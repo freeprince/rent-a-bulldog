@@ -1,81 +1,81 @@
 {
     "Bulldogs": [
         {
-            "Hersteller": "John Deere",
-            "Modell": "317",
+            "hersteller": "John Deere",
+            "modell": "317",
             "Klasse": "L",
-            "Farbe": "Grün/Gelb",
-            "Beschreibung": "Inkl. Sitzheizung",
-            "Leistung": 8,
-            "PreisProTag": 66.12,
-            "PreisProStd": 15.54,
-            "BildUrls": "http://www.tractordata.com/ltphotos/F000/35/35-td4-b03.jpg"
+            "farbe": "Grün/Gelb",
+            "beschriebung": "Inkl. Sitzheizung",
+            "leistung": 8,
+            "preis_pro_tag": 66.12,
+            "preis_pro_std": 15.54,
+            "img_url": "http://www.tractordata.com/ltphotos/F000/35/35-td4-b03.jpg"
         },
         {
-            "Hersteller": "Bautz",
-            "Modell": "AL 122",
+            "hersteller": "Bautz",
+            "modell": "AL 122",
             "Klasse": "T",
-            "Farbe": "Grün",
-            "Beschreibung": "Oldtimer",
-            "Leistung": 87,
-            "PreisProTag": 5.52,
-            "PreisProStd": 5.54,
-            "BildUrls": "images/Bautz_AL122_2.jpg"
+            "farbe": "Grün",
+            "beschriebung": "Oldtimer",
+            "leistung": 87,
+            "preis_pro_tag": 5.52,
+            "preis_pro_std": 5.54,
+            "img_url": "images/Bautz_AL122_2.jpg"
         },
         {
-            "Hersteller": "Claas",
-            "Modell": "Ares 500",
+            "hersteller": "Claas",
+            "modell": "Ares 500",
             "Klasse": "T",
-            "Farbe": "Grün",
-            "Beschreibung": "Frontlader",
-            "Leistung": 71,
-            "PreisProTag": 8.21,
-            "PreisProStd": 9.37,
-            "BildUrls": "http://traktorua.com.ua/images/stories/claas/claas-ares-697.jpg"
+            "farbe": "Grün",
+            "beschriebung": "Frontlader",
+            "leistung": 71,
+            "preis_pro_tag": 8.21,
+            "preis_pro_std": 9.37,
+            "img_url": "http://traktorua.com.ua/images/stories/claas/claas-ares-697.jpg"
         },
         {
-            "Hersteller": "Claas",
-            "Modell": "Ares 600",
+            "hersteller": "Claas",
+            "modell": "Ares 600",
             "Klasse": "T",
-            "Farbe": "Grün",
-            "Beschreibung": "Altmodisches Fahrwerk",
-            "Leistung": 171,
-            "PreisProTag": 18.21,
-            "PreisProStd": 19.37,
-            "BildUrls": "http://www.atkin-farm-machinery.co.uk/Images/Stock/2WD%204WD/Claas%20Ares%20836/4WD%20Claas%20Ares%20836%20(1)600_450.png"
+            "farbe": "Grün",
+            "beschriebung": "Altmodisches Fahrwerk",
+            "leistung": 171,
+            "preis_pro_tag": 18.21,
+            "preis_pro_std": 19.37,
+            "img_url": "http://www.atkin-farm-machinery.co.uk/Images/Stock/2WD%204WD/Claas%20Ares%20836/4WD%20Claas%20Ares%20836%20(1)600_450.png"
         },
         {
-            "Hersteller": "Claas",
-            "Modell": "Ares 700",
+            "hersteller": "Claas",
+            "modell": "Ares 700",
             "Klasse": "T",
-            "Farbe": "Grün",
-            "Beschreibung": "Altmodisches Fahrwerk",
-            "Leistung": 271,
-            "PreisProTag": 28.21,
-            "PreisProStd": 29.37,
-            "BildUrls": "https://static.landwirt.com/5522-c28883d11066a2c9d4e4e3539c9c1070-1721111-0vb.jpg"
+            "farbe": "Grün",
+            "beschriebung": "Altmodisches Fahrwerk",
+            "leistung": 271,
+            "preis_pro_tag": 28.21,
+            "preis_pro_std": 29.37,
+            "img_url": "https://static.landwirt.com/5522-c28883d11066a2c9d4e4e3539c9c1070-1721111-0vb.jpg"
         },
         {
-            "Hersteller": "Deutz",
-            "Modell": "FM315",
+            "hersteller": "Deutz",
+            "modell": "FM315",
             "Klasse": "L",
-            "Farbe": "Grau",
-            "Beschreibung": "FWD",
-            "Leistung": 574,
-            "PreisProTag": 7.76,
-            "PreisProStd": 37.48,
-            "BildUrls": "http://www.fahrzeugseiten.de/Traktoren/Deutz/F2M315/Deutz_F2M315_1m.jpg"
+            "farbe": "Grau",
+            "beschriebung": "FWD",
+            "leistung": 574,
+            "preis_pro_tag": 7.76,
+            "preis_pro_std": 37.48,
+            "img_url": "http://www.fahrzeugseiten.de/Traktoren/Deutz/F2M315/Deutz_F2M315_1m.jpg"
         },
         {
-            "Hersteller": "Deutz",
-            "Modell": "FM317",
+            "hersteller": "Deutz",
+            "modell": "FM317",
             "Klasse": "L",
-            "Farbe": "Blau",
-            "Beschreibung": "Oldtimer",
-            "Leistung": 274,
-            "PreisProTag": 2.72,
-            "PreisProStd": 75.15,
-            "BildUrls": "http://zugtier.info/wp-content/uploads/2015/02/deutz-f3m-317.jpg"
+            "farbe": "Blau",
+            "beschriebung": "Oldtimer",
+            "leistung": 274,
+            "preis_pro_tag": 2.72,
+            "preis_pro_std": 75.15,
+            "img_url": "http://zugtier.info/wp-content/uploads/2015/02/deutz-f3m-317.jpg"
         }
     ]
 }
