@@ -4,13 +4,75 @@ body,
     height: 100%;
 }
 
-.pageHeader {
-    /*height: 75px;*/
+/* ##################
+   #  BulldogList   #
+   ################## */
+
+.bulldogList {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
 }
 
-#parentNavContainer {
-    
+.bulldogList ul {
+    list-style-type: none;
+    padding: 0;
 }
+
+.bulldogListItem {
+    width: 100%;
+}
+
+.bulldogListItemDiv {
+    display: table;
+    margin: 0 auto;
+}
+
+.bulldogListItemImageDiv {
+    padding: 5px;
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+}
+
+.bulldogListItemImage {    
+    max-width: 200px;
+    max-height: 150px;
+}
+
+.bulldogListItemText {
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+}
+
+.bulldogListItemTextManufacturer {
+    font-size: 20px;
+}
+
+.bulldogListItemPrices {
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;    
+    width: 150px;
+}
+
+.bulldogListItemButton {
+    padding: 5px;
+    vertical-align: top;
+    margin-top: 20px;    
+}
+
+.bulldogListItemDivider {
+    width: 800px;
+}
+
+
+/* ##################
+   #  SelectButton  #
+   ################## */
 
 .selectButton {
     margin-bottom: 10px;
@@ -61,6 +123,10 @@ body,
     border: 3px #DEF0F2 solid;
 }
 
+/* ##################
+   #      ???       #
+   ################## */
+
 .filterHeader {
     overflow: unset;
 }
@@ -68,6 +134,10 @@ body,
 .bigLabel {
     font-size: 6rem !important;
 }
+
+/* ##################
+   #   Startseite   #
+   ################## */
 
 .initial-bg {			
     background-image: url('../images/home_bg.jpg');
@@ -103,9 +173,9 @@ body,
     display: none;
 }
 
-.listItemImg {
-    
-}
+/* ##################
+   # Suchergebnisse #
+   ################## */
 
 .listItemImg img {    
     height: 120px;

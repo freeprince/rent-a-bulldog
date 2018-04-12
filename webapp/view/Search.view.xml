@@ -82,10 +82,30 @@
         vertical="true"
         focusable="false"
         visible="true">        
-        <!--
-        <core:Fragment fragmentName="rab.fragment.SearchFilter" type="XML"/>        
-        -->
         <Panel>
+    
+            <rab:BulldogList 
+                id="searchResultList"
+                items="{bulldogs>/Bulldogs}">   
+                <rab:items>
+                    <rab:BulldogListItem 
+                        bulldogId="{bulldogs>bulldog_id}"
+                        imageSource="{bulldogs>img_url}"
+                        manufacturer="{bulldogs>hersteller}"
+                        modell="{bulldogs>modell}"
+                        color="{bulldogs>farbe}"
+                        power="{bulldogs>leistung} PS"
+                        desc="{bulldogs>beschreibung}"            
+                        price="{path: 'bulldogs>preis_pro_tag',
+                                formatter: '.formatter.price'
+                                } {view>/currencyDaily}"
+                        fullPrice="Gesamt: {path: 'bulldogs>preis_gesamt',
+                                            formatter: '.formatter.price'
+                                            } {view>/currency}"/>
+                </rab:items>         
+            </rab:BulldogList>
+
+            <!--
             <Table
                 id="searchResultList"
                 items="{bulldogs>/Bulldogs}">
@@ -164,6 +184,8 @@
                     </ColumnListItem>
                 </items>
             </Table>
+            -->
+    
         </Panel>
         <mvc:XMLView viewName="rab.view.Footer"/>
     </ScrollContainer>
