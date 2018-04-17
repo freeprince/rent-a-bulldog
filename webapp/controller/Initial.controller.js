@@ -52,14 +52,6 @@ sap.ui.define([
 		},
 
         onSearchClicked: function (oEvent) {
-            let oComponent = this.getOwnerComponent();
-            let m = oComponent.getModel("crits");
-
-            // TODO falls, rückgabedatum < abholdatum
-
-            let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
-            m.setProperty("/duration", diffDays);
-
             let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("search");
         }

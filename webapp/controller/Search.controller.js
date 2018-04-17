@@ -9,11 +9,18 @@ sap.ui.define([
     "use strict";
     return Controller.extend("rab.controller.Search", {
 
-        useOData: false,
+        useOData: true,
 
         formatter: Formatter,
 
-        onInit: function () {
+        onInit: function () {               
+
+            let oComponent = this.getOwnerComponent();
+            let m = oComponent.getModel("crits");
+
+            let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
+            m.setProperty("/duration", diffDays);
+
             this.doSearch();
 
             let addCrits = new JSONModel(this.loadODataCrits());
@@ -30,39 +37,26 @@ sap.ui.define([
                 Classes: [{ Name: "L" }, { Name: "T" }]
             }), "classes");
 
-            let oViewModel = new JSONModel({
+            this.getView().setModel(new JSONModel({
                 currency: "€",
                 currencyDaily: "€ pro Tag"
-            });
-            this.getView().setModel(oViewModel, "view");
-        },
-        onItemPress: function (oEvent) {
-            console.log("Search#onItemPress");
-            console.log(oEvent);
-            // The actual Item
-            let oItem = oEvent.getSource();
-            // The model that is bound to the item
-            let oContext = oItem.getBindingContext("DC");
-            // A single property from the bound model
-            let sName = oContext.getProperty("Name");
-            console.log(sName);
+            }), "view");
         },
         onDetailClicked: function (oEvent) {
-            MessageToast.show("Warenkorb ist noch nicht bereit!");
-            let src = oEvent.getSource();
-            console.log(oEvent);
-            let aParts = src.sId.split("-");
-            let id = aParts[aParts.length - 1];
-            console.log("id:" + id);
+            let oSelectedBulldog = oEvent.getParameter("value");
+            console.log(oSelectedBulldog);
 
-            // TODO Filter beachten
-            let list = this.getView().byId("searchResultList");
-            let oModel = list.getModel("bulldogs");
-            let oData = oModel.oData;
-            let aBulldogs = oData.Bulldogs;
+            let iId = oSelectedBulldog.bulldog_id;
 
-            let selectedBulldog = aBulldogs[id];
-            console.log("Search: selectedBulldog", selectedBulldog);
+            // let oComponent = this.getOwnerComponent();
+            // //oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");             
+            // let oService = oComponent.getModel("service");
+
+            // oService.read("/SearchResultSet(" + iId + ")", {
+            //     success: function (oRetrievedResult) {
+            //         console.log("/SearchResultSet(" + iId + ")", oRetrievedResult);
+            //     }
+            // });
 
             let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("details");
@@ -115,8 +109,9 @@ sap.ui.define([
                     success: function (oRetrievedResult) {
                         console.log("Search result success");
                         let bulldogs = oRetrievedResult.results;
+                        // console.log(bulldogs);
                         bulldogs = { Bulldogs: bulldogs };
-                        console.log(bulldogs);
+                        //console.log(bulldogs);
 
                         for (let i = 0; i < bulldogs.Bulldogs.length; i++) {
                             let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
@@ -137,7 +132,6 @@ sap.ui.define([
                     }
                 });
             } else {
-                let that = this;
                 let oModel = new JSONModel();
                 oModel.loadData("./mock/get_search.json");
                 oModel.attachRequestCompleted(function () {
