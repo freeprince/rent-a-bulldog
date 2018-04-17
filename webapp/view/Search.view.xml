@@ -82,111 +82,40 @@
         vertical="true"
         focusable="false"
         visible="true">        
-        <Panel>
     
-            <rab:BulldogList 
-                id="searchResultList"
-                items="{bulldogs>/Bulldogs}">   
-                <rab:items>
-                    <rab:BulldogListItem 
-                        bulldogId="{bulldogs>bulldog_id}"
-                        imageSource="{bulldogs>img_url}"
-                        manufacturer="{bulldogs>hersteller}"
-                        modell="{bulldogs>modell}"
-                        color="{bulldogs>farbe}"
-                        power="{bulldogs>leistung} PS"
-                        desc="{bulldogs>beschreibung}"            
-                        price="{path: 'bulldogs>preis_pro_tag',
-                                formatter: '.formatter.price'
-                                } {view>/currencyDaily}"
-                        fullPrice="Gesamt: {path: 'bulldogs>preis_gesamt',
-                                            formatter: '.formatter.price'
-                                            } {view>/currency}"/>
-                </rab:items>         
-            </rab:BulldogList>
+        <HBox class="filterHeader">                    
+            <rab:SelectButton description="Hersteller" 
+                myArray="{manufacturers>/Manufacturers}"
+                onSelectionFinished="onFilterHerstellerFinished">
+            </rab:SelectButton>					
+            <rab:SelectButton description="Klasse" 
+                myArray="{manufacturers>/Classes}"
+                onSelectionFinished="onFilterKlasseFinished">
+            </rab:SelectButton>					
+        </HBox>
 
-            <!--
-            <Table
-                id="searchResultList"
-                items="{bulldogs>/Bulldogs}">
-                
-                <headerToolbar>
-					<Toolbar class="filterHeader">                    
-                        <rab:SelectButton description="Hersteller" 
-                            myArray="{manufacturers>/Manufacturers}"
-                            onSelectionFinished="onFilterHerstellerFinished">
-                        </rab:SelectButton>					
-                        <rab:SelectButton description="Klasse" 
-                            myArray="{manufacturers>/Classes}"
-                            onSelectionFinished="onFilterKlasseFinished">
-                        </rab:SelectButton>					
-					</Toolbar>
-				</headerToolbar>
-                
-                <columns>
-                    <Column
-                        hAlign="End">
-                    </Column>
-                    <Column
-                        hAlign="Center"
-                        minScreenWidth="Tablet"
-                        demandPopin="true">
-                    </Column>
-                    <Column
-                        minScreenWidth="Tablet"
-                        demandPopin="true"
-                        hAlign="Center">
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem>
-                        <HBox
-                            class="listItemImg sapUiSmallMarginBegin">
-                            <Image
-                                src="{
-                                    path: 'bulldogs>img_url'
-                                }"
-                                alt="Bild von {bulldogs>hersteller} {bulldogs>modell}"/>
-                        </HBox>
-                        <VBox 
-                            class="listItemDesc sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
-                            <Title text="{bulldogs>hersteller}"/>
-                            <Title text="{bulldogs>modell}"/>
-                            <Label text="{bulldogs>farbe}"/>
-                            <Label text="{bulldogs>leistung} PS"/>
-                            <Label text="{bulldogs>beschreibung}"/>
-                        </VBox>
-                        <HBox
-                            class="listItemPrice sapUiSmallMarginBegin">
-                            <VBox
-                                class="listItemPriceValue sapUiSmallMarginEnd">
-                                <Title
-                                    text="Preis"
-                                    class="sapUiSmallMarginTopBottom" />
-                                <VBox>
-                                    <Title
-                                        text="{
-                                            path: 'bulldogs>preis_pro_tag',
-                                            formatter: '.formatter.price'
-                                        } {view>/currencyDaily}"/>
-                                    <Label
-                                        text="Gesamt: {
-                                            path: 'bulldogs>preis_gesamt',
-                                            formatter: '.formatter.price'
-                                        } {view>/currency}"/>
-                                </VBox>
-                            </VBox>
-                            <Button
-                                class="sapUiSmallMarginTopBottom sapUiSmallMarginEnd"
-                                text="Jetzt mieten"
-                                press="onDetailClicked" />
-                        </HBox>
-                    </ColumnListItem>
-                </items>
-            </Table>
-            -->
-    
-        </Panel>
+        <rab:BulldogList 
+            id="searchResultList"
+            items="{bulldogs>/Bulldogs}">   
+            <rab:items>
+                <rab:BulldogListItem 
+                    bulldogId="{bulldogs>bulldog_id}"
+                    imageSource="{bulldogs>img_url}"
+                    manufacturer="{bulldogs>hersteller}"
+                    modell="{bulldogs>modell}"
+                    color="{bulldogs>farbe}"
+                    power="{bulldogs>leistung} PS"
+                    desc="{bulldogs>beschreibung}"            
+                    price="{path: 'bulldogs>preis_pro_tag',
+                            formatter: '.formatter.price'
+                            } {view>/currencyDaily}"
+                    fullPrice="Gesamt: {path: 'bulldogs>preis_gesamt',
+                                        formatter: '.formatter.price'
+                                        } {view>/currency}"
+                    press="onDetailClicked"/>
+            </rab:items>         
+        </rab:BulldogList>
+
         <mvc:XMLView viewName="rab.view.Footer"/>
     </ScrollContainer>
 </mvc:View>

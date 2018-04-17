@@ -4,6 +4,20 @@ body,
     height: 100%;
 }
 
+.bigLabel {
+    font-size: 6rem !important;
+}
+
+/* ##################
+   #    Filter      #
+   ################## */
+
+.filterHeader {
+    overflow: unset;
+    margin: 20px;
+    margin-left: 70px;
+}
+
 /* ##################
    #  BulldogList   #
    ################## */
@@ -121,18 +135,6 @@ body,
     width: 170px;
     display: none;
     border: 3px #DEF0F2 solid;
-}
-
-/* ##################
-   #      ???       #
-   ################## */
-
-.filterHeader {
-    overflow: unset;
-}
-
-.bigLabel {
-    font-size: 6rem !important;
 }
 
 /* ##################

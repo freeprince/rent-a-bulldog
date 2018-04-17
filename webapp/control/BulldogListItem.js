@@ -23,7 +23,12 @@ sap.ui.define("rab.control.BulldogListItem", [
 			},
 
 			events: {
-				
+				 press : {
+                    enablePreventDefault: true,
+                    parameters : {
+						value : {type : "object"}
+                    }
+                },
 			}
 		},
 		
@@ -40,7 +45,12 @@ sap.ui.define("rab.control.BulldogListItem", [
 
 		_onSelect: function(oEvent) {
 			let iId = this.getBulldogId();
-			console.log("clicked on bulldog:", iId, oEvent);
+			console.log("clicked on bulldog:", iId);
+			this.fireEvent("press", {
+				value: {
+					bulldog_id: iId
+				}
+            });            
 		},
 		
 		renderer: function(oRm, oControl) {
