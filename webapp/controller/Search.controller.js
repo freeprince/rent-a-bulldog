@@ -97,6 +97,9 @@ sap.ui.define([
             console.log("Search#doSearch: iDays=" + iDays);
 
             if (this.useOData) {
+
+                sap.ui.core.BusyIndicator.show(10);
+
                 // one with id            
                 // oService.read("/SearchResultSet(32)", {
                 // multiple
@@ -125,6 +128,8 @@ sap.ui.define([
 
                         let list = that.getView().byId("searchResultList");
                         list.setModel(oModel, "bulldogs");
+
+                        sap.ui.core.BusyIndicator.hide();
                     },
                     error: function (oError) {
                         console.log("Search result error");
@@ -181,7 +186,7 @@ sap.ui.define([
         doFilter: function (oEvent) {
             let aFilters = [];
 
-            let addCrits = this.getView().getModel("addCrits").getData();;
+            let addCrits = this.getView().getModel("addCrits").getData();
 
             // Filter für Hersteller
             let filtersHersteller = [];
