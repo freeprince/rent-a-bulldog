@@ -81,8 +81,8 @@
         horizontal="false"
         vertical="true"
         focusable="false"
-        visible="true">        
-    
+        visible="true">    
+        
         <HBox class="filterHeader">                    
             <rab:SelectButton description="Hersteller" 
                 myArray="{manufacturers>/Manufacturers}"
@@ -106,6 +106,9 @@
                     color="{bulldogs>farbe}"
                     power="{bulldogs>leistung} PS"
                     desc="{bulldogs>beschreibung}"            
+                    year="{bulldogs>baujahr}"     
+                    hours="{bulldogs>betriebsstunden}"     
+                    bulldogClass="{bulldogs>klasse}"     
                     price="{path: 'bulldogs>preis_pro_tag',
                             formatter: '.formatter.price'
                             } {view>/currencyDaily}"
@@ -115,7 +118,7 @@
                     press="onDetailClicked"/>
             </rab:items>         
         </rab:BulldogList>
-
+        
         <mvc:XMLView viewName="rab.view.Footer"/>
     </ScrollContainer>
 </mvc:View>

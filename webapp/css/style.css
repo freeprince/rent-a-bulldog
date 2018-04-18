@@ -14,8 +14,9 @@ body,
 
 .filterHeader {
     overflow: unset;
-    margin: 20px;
-    margin-left: 70px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 70px;
 }
 
 /* ##################
@@ -26,6 +27,7 @@ body,
     width: 100%;
     margin: 0 auto;
     overflow: auto;
+    background-color: white;
 }
 
 .bulldogList ul {
@@ -47,6 +49,7 @@ body,
     display: inline-block;
     width: 200px;
     height: 150px;
+    margin-right: 20px;
 }
 
 .bulldogListItemImage {    
@@ -80,7 +83,7 @@ body,
 }
 
 .bulldogListItemDivider {
-    width: 800px;
+    width: 780px;
 }
 
 

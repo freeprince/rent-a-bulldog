@@ -14,6 +14,9 @@ sap.ui.define("rab.control.BulldogListItem", [
 				color: "string",
 				power: "string",
 				desc: "string",
+				year: "string",
+				hours: "string",
+				bulldogClass: "string",
 				price: "string",
 				fullPrice: "string"
 			},
@@ -89,13 +92,22 @@ sap.ui.define("rab.control.BulldogListItem", [
 									text: oControl.getModell()
 								}),
 								new sap.m.Label({
-									text: oControl.getColor()
+									text: "Farbe: " + oControl.getColor()
 								}),
 								new sap.m.Label({
-									text: oControl.getPower()
+									text: "Leistung: " + oControl.getPower()
 								}),
 								new sap.m.Label({
-									text: oControl.getDesc()
+									text: "Klasse: " + oControl.getBulldogClass()
+								}),
+								new sap.m.Label({
+									text: "Baujahr: " + oControl.getYear()
+								}),
+								new sap.m.Label({
+									text: "Betriebsstd.: " + oControl.getHours()
+								}),
+								new sap.m.Label({
+									text: "Beschreibung: " + oControl.getDesc()
 								})
 							]
 						}));
