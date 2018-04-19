@@ -1,94 +1,115 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="rab.controller.ahuberController.BulldogDetails">
-	<App>
-		<pages>
-			<Page title="Title">
-			<content><sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid1" defaultSpan="XL6 L6 M6 S12">
-			        <sap.ui.layout:content>
-			            <Image src="images\ahuberImages\AndisLieblingsBulldog.jpg" width="100%" height="100%" id="__image0"/>
-			            <sap.ui.layout:Grid id="__grid0" defaultSpan="XL6 L6 M6 S6">
-			            <sap.ui.layout:content>
-			                <Label text="Hersteller:" width="100%" id="__label5"/>
-			                <Label text="{bulldogDetailModel>/hersteller}" width="100%" id="__label6"/>
-			                <Label text="Modell:" width="100%" id="__label10"/>
-			                <Label text="{bulldogDetailModel>/modell}" width="100%" id="__label9"/>
-			                <Label text="Leistung:" width="100%" id="__label11"/>
-			                <Label text="{bulldogDetailModel>/leistung}" width="100%" id="__label7"/>
-			                <Label text="Führerscheinklasse:" width="100%" id="__label0"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/fuehrerscheinklasse}" width="100%" id="__label0_copy"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Farbe:" width="100%" id="__label0_copy2"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/farbe}" width="100%" id="__label0_copy3"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Tagespauschale:" width="100%" id="__label0_copy4"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/tagespauschale}" width="100%" id="__label0_copy5"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="Preis pro Stunde:" width="100%" id="__label0_copy6"/>
-			                <Label xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/preisProStunde}" width="100%" id="__label0_copy7"/>
-			                <Label text="Beschreibung:" width="100%" id="__label2"/>
-			                <Label text="{bulldogDetailModel>/beschreibung}" wrapping="true" width="100%" id="__label3"/>
-			            </sap.ui.layout:content>
-			            </sap.ui.layout:Grid></sap.ui.layout:content>
-			    </sap.ui.layout:Grid>
-			    <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid2" defaultSpan="XL4 L4 M6 S12">
-			        <sap.ui.layout:content>
-			            <HBox xmlns="sap.m" width="100%" id="__hbox0_copy" alignItems="Center">
-			                <items>
-			                    <Label xmlns:core="sap.ui.core" 
-                                    xmlns:mvc="sap.ui.core.mvc" 
-                                    xmlns="sap.m" 
-                                    xmlns:html="http://www.w3.org/1999/xhtml" 
-                                    xmlns:sap.ui.layout="sap.ui.layout" 
-                                    text="Von:" 
-                                    width="100%" 
-                                    id="__label1_copy6" 
-                                    textAlign="End"/>
-			                    <DatePicker ariaLabelledBy="__xmlview0--__item4_copy-label" 
-                                    width="100%" 
-                                    id="__picker0_copy"
-                                    valueFormat="dd.MM.yyyy"
-                                    displayFormat="dd.MM.yyyy"
-                                    change="onChangeDate"
-                                    value="{bulldogDetailModel>/von}"
-                                />
-			                </items>
-			            </HBox>
-			            <HBox xmlns="sap.m" width="100%" id="__hbox1_copy" alignItems="Center">
-			                <items>
-			                    <Label xmlns:core="sap.ui.core" 
-                                    xmlns:mvc="sap.ui.core.mvc" 
-                                    xmlns="sap.m" 
-                                    xmlns:html="http://www.w3.org/1999/xhtml" 
-                                    xmlns:sap.ui.layout="sap.ui.layout" 
-                                    text="Bis:" width="100%" 
-                                    id="__label1_copy7" 
-                                    textAlign="End"/>
-			                    <DatePicker xmlns:core="sap.ui.core" 
-                                    xmlns:mvc="sap.ui.core.mvc" 
-                                    xmlns="sap.m" 
-                                    xmlns:html="http://www.w3.org/1999/xhtml" 
-                                    xmlns:sap.ui.layout="sap.ui.layout" 
-                                    ariaLabelledBy="__xmlview0--__item4_copy-label" 
-                                    width="100%" 
-                                    id="__picker0_copy3"
-                                    valueFormat="dd.MM.yyyy"
-                                    displayFormat="dd.MM.yyyy"
-                                    value="{bulldogDetailModel>/bis}"
-                                    change="onChangeDate"
-                                />
-			                </items>
-			            </HBox>
-			            <Button xmlns:core="sap.ui.core" 
-                            xmlns:mvc="sap.ui.core.mvc" 
-                            xmlns:html="http://www.w3.org/1999/xhtml" 
-                            xmlns:sap.ui.layout="sap.ui.layout" 
-                            xmlns="sap.m" 
-                            text="Reservieren" 
-                            width="200px" 
-                            id="__button0_copy"
-                            press="onReservierungPress"/>
-                    </sap.ui.layout:content>
-			    </sap.ui.layout:Grid>
-			    <!--<Label text="Verfügbarkeit:" width="100%" id="__label1"/>
-			    <sap.ui.unified:Calendar xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.unified="sap.ui.unified" id="__calendar0_copy"/> !-->
-			</content>
-			</Page>
-		</pages>
-	</App>
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="rab.controller.ahuberController.BulldogDetails">
+
+					<sap.ui.layout:Grid 
+						xmlns:sap.ui.layout="sap.ui.layout" id="__grid1" defaultSpan="XL6 L6 M6 S12">
+						<sap.ui.layout:content>
+							<Image src="images\ahuberImages\AndisLieblingsBulldog.jpg" width="100%" height="100%" id="__image0"/>
+							<sap.ui.layout:Grid id="__grid0" defaultSpan="XL6 L6 M6 S6">
+								<sap.ui.layout:content>
+									<Label text="Hersteller:" width="100%" id="__label5"/>
+									<Label text="{bulldogDetailModel>/hersteller}" width="100%" id="__label6"/>
+									<Label text="Modell:" width="100%" id="__label10"/>
+									<Label text="{bulldogDetailModel>/modell}" width="100%" id="__label9"/>
+									<Label text="Leistung:" width="100%" id="__label11"/>
+									<Label text="{bulldogDetailModel>/leistung}" width="100%" id="__label7"/>
+									<Label text="Führerscheinklasse:" width="100%" id="__label0"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/fuehrerscheinklasse}" width="100%" id="__label0_copy"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="Farbe:" width="100%" id="__label0_copy2"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/farbe}" width="100%" id="__label0_copy3"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="Tagespauschale:" width="100%" id="__label0_copy4"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/tagespauschale}" width="100%" id="__label0_copy5"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="Preis pro Stunde:" width="100%" id="__label0_copy6"/>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="{bulldogDetailModel>/preisProStunde}" width="100%" id="__label0_copy7"/>
+									<Label text="Beschreibung:" width="100%" id="__label2"/>
+									<Label text="{bulldogDetailModel>/beschreibung}" wrapping="true" width="100%" id="__label3"/>
+								</sap.ui.layout:content>
+							</sap.ui.layout:Grid>
+						</sap.ui.layout:content>
+					</sap.ui.layout:Grid>
+					<sap.ui.layout:Grid 
+						xmlns:sap.ui.layout="sap.ui.layout" id="__grid2" defaultSpan="XL4 L4 M6 S12">
+						<sap.ui.layout:content>
+							<HBox 
+								xmlns="sap.m" width="100%" id="__hbox0_copy" alignItems="Center">
+								<items>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="Von:" width="100%" id="__label1_copy6" textAlign="End"/>
+									<DatePicker ariaLabelledBy="__xmlview0--__item4_copy-label" width="100%" id="__picker0_copy" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" change="onChangeDate" value="{bulldogDetailModel>/von}" />
+								</items>
+							</HBox>
+							<HBox 
+								xmlns="sap.m" width="100%" id="__hbox1_copy" alignItems="Center">
+								<items>
+									<Label 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" text="Bis:" width="100%" id="__label1_copy7" textAlign="End"/>
+									<DatePicker 
+										xmlns:core="sap.ui.core" 
+										xmlns:mvc="sap.ui.core.mvc" 
+										xmlns="sap.m" 
+										xmlns:html="http://www.w3.org/1999/xhtml" 
+										xmlns:sap.ui.layout="sap.ui.layout" ariaLabelledBy="__xmlview0--__item4_copy-label" width="100%" id="__picker0_copy3" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" value="{bulldogDetailModel>/bis}" change="onChangeDate" />
+								</items>
+							</HBox>
+							<Button 
+								xmlns:core="sap.ui.core" 
+								xmlns:mvc="sap.ui.core.mvc" 
+								xmlns:html="http://www.w3.org/1999/xhtml" 
+								xmlns:sap.ui.layout="sap.ui.layout" 
+								xmlns="sap.m" text="Reservieren" width="200px" id="__button0_copy" press="onReservierungPress"/>
+						</sap.ui.layout:content>
+					</sap.ui.layout:Grid>
+					<!--<Label text="Verfügbarkeit:" width="100%" id="__label1"/><sap.ui.unified:Calendar 
+					xmlns:core="sap.ui.core" 
+					xmlns:mvc="sap.ui.core.mvc" 
+					xmlns="sap.m" 
+					xmlns:html="http://www.w3.org/1999/xhtml" 
+					xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.ui.unified="sap.ui.unified" id="__calendar0_copy"/> !-->
+
 </mvc:View>
