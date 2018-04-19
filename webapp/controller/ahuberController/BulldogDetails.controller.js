@@ -104,6 +104,8 @@ sap.ui.define([
 				oRouter.navTo("login");
 			}else{
 				MessageToast.show("Es geht weiter");
+				let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("Bestelluebersicht");
 			}
 
 		}

@@ -104,6 +104,10 @@
 					"pattern": "register",
 					"name": "register",
 					"target": "register"
+				},{
+					"pattern": "Bestelluebersicht",
+					"name": "Bestelluebersicht",
+					"target": "Bestelluebersicht"
 				}
 			],
 			"targets": {
@@ -182,6 +186,14 @@
 					"viewName": "NotFound",
 					"transition": "show",
 					"viewLevel": 0
+				},
+				"Bestelluebersicht": {
+					"viewName": "Bestelluebersicht",
+					"viewPath": "rab.view.ahuberView",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"
 				}
 			}
 		}
