@@ -169,6 +169,15 @@
 					"controlId": "parentNavContainer",
 					"controlAggregation": "pages"					
 				},
+					"kundenDetail": {
+					"viewId": "kundenDetail",
+        			"viewPath": "rab.view.nmarxView.view",
+					"viewName": "Kundendetail",
+					"viewLevel": 2,
+					"parent": "root",
+					"controlId": "parentNavContainer",
+					"controlAggregation": "pages"					
+				},
 				"details": {
 					"viewId": "details",
         			"viewPath": "rab.view.ahuberView",

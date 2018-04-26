@@ -1,32 +1,29 @@
-<mvc:View 
-    xmlns="sap.m" 
-    xmlns:mvc="sap.ui.core.mvc" controllerName="rab.controller.Root" displayBlock="true">
-    <Page id="parentPage">
-        <customHeader>
-            <Bar class="pageHeader">
-                <contentLeft>
-                    <HBox>
-                        <Image src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/tractor-512.png" 
-                            height="38px" 
-                            class="sapUiTinyMargin"
-                            press="onHeaderPressed" />
-                        <Title text="Rent a Bulldog"
-                            visible="{=!${device>/system/phone}}"/>
-                    </HBox>
-                </contentLeft>
-                <contentRight>
-                    <Button text="Anmelden" press="onLogin" />
-                    <Button text="Registrieren" press="onRegister" />
-                </contentRight>
-                <contentMiddle></contentMiddle>
-            </Bar>
-        </customHeader>        
-        <NavContainer id="parentNavContainer">
-            <!-- Avoid sap.m.App here. Instead, use sap.m.NavContainer:
+<mvc:View xmlns="sap.m" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc" controllerName="rab.controller.Root" displayBlock="true">
+	<Page id="parentPage">
+		<customHeader>
+			<Bar class="pageHeader">
+				<contentLeft>
+					<HBox>
+						<Image src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/tractor-512.png" height="38px" class="sapUiTinyMargin"
+							press="onHeaderPressed"/>
+						<Title text="Rent a Bulldog" visible="{=!${device>/system/phone}}"/>
+					</HBox>
+				</contentLeft>
+				<contentRight>
+					<f:Avatar src="sap-icon://customer" press="onKundendetail"></f:Avatar>
+					<Button text="Anmelden" press="onLogin"/>
+					<Button text="Registrieren" press="onRegister"/>
+					
+				</contentRight>
+				<contentMiddle></contentMiddle>
+			</Bar>
+		</customHeader>
+		<NavContainer id="parentNavContainer">
+			<!-- Avoid sap.m.App here. Instead, use sap.m.NavContainer:
             https://github.com/SAP/openui5/issues/1282#issuecomment-280575439 -->
-            <pages>
-                <!-- Child views will be added here by the routing mechanism -->
-            </pages>
-        </NavContainer>
-    </Page>
+			<pages>
+				<!-- Child views will be added here by the routing mechanism -->
+			</pages>
+		</NavContainer>
+	</Page>
 </mvc:View>
