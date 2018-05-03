@@ -115,13 +115,8 @@
                             } {view>/currencyDaily}"
                     fullPrice="Gesamt: {path: 'bulldogs>preis_gesamt',
                                         formatter: '.formatter.price'
-                                        } {view>/currency}"                    
+                                        } {view>/currency}"
                     press="onDetailClicked"/>
-                    <!--
-                    fullPrice="Gesamt: {path: 'bulldogs>preis_pro_tag',
-                                formatter: '.formatter.fullPrice'
-                                } {view>/currency}"
-                    -->
             </rab:items>         
         </rab:BulldogList>
         

@@ -36,7 +36,7 @@ sap.ui.define([
 			console.log(bulldogDetailModel);
 
 			// Setzen des Models in die View (Einbinden)
-			//this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
+			this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
 
 
 
@@ -104,6 +104,8 @@ sap.ui.define([
 				oRouter.navTo("login");
 			}else{
 				MessageToast.show("Es geht weiter");
+				let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("Bestelluebersicht");
 			}
 
 		}

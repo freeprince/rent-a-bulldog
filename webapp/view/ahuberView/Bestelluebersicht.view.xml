@@ -1,0 +1,60 @@
+<mvc:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" controllerName="rab.view.ahuberView.view.controller.Bestelluebersicht" 
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <sap.ui.layout:Grid 
+        xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" defaultSpan="XL12 L12 M12 S12">
+        <sap.ui.layout:content>
+            <sap.ui.layout:Grid id="__grid1" defaultSpan="XL6 L6 M6 S12">
+                <sap.ui.layout:content>
+                    <Image width="140px" height="140px" id="__image0"/>
+                    <sap.ui.layout:Grid id="__grid2">
+                        <sap.ui.layout:content>
+                            <Label text="Hersteller:" width="100%" id="__label0"/>
+                            <Label text="xxx" width="100%" id="__label1"/>
+                            <Label text="Modell:" width="100%" id="__label2"/>
+                            <Label text="xxx" width="100%" id="__label3"/>
+                            <Label text="Leistung:" width="100%" id="__label4"/>
+                            <Label text="xxx" width="100%" id="__label5"/>
+                        </sap.ui.layout:content>
+                    </sap.ui.layout:Grid>
+                </sap.ui.layout:content>
+            </sap.ui.layout:Grid>
+            <Label text="Paketauswahl" width="100%" id="__label8"/>
+            <RadioButtonGroup width="100%" selectedIndex="-1" id="__group1">
+                <buttons>
+                    <RadioButton selected="true" groupName="__group1" text="Inklusive 5 Tage + 25 Betriebsstunden" id="__button2"/>
+                    <RadioButton 
+                        xmlns:core="sap.ui.core" 
+                        xmlns:mvc="sap.ui.core.mvc" 
+                        xmlns="sap.m" change="onPaketChange" 
+                        xmlns:html="http://www.w3.org/1999/xhtml" groupName="__group1" text="Inklusive 10 Tage + 50 Betriebsstunden" id="__button2_copy"/>
+                    <RadioButton groupName="__group1" text="Inklusive 30 Tage + 100 Betriebsstunden" id="__button3"/>
+                </buttons>
+            </RadioButtonGroup>
+            <Label text="Versicherungsschutz" width="100%" id="__label7"/>
+            <CheckBox id="__box0" text="Vollkasko versichert + 100€"/>
+            <Label text="Zahlungsart" width="100%" id="__label6"/>
+            <RadioButtonGroup width="100%" selectedIndex="-1" id="__group2">
+                <buttons>
+                    <RadioButton selected="true" groupName="__group2" text="Barzahlung" id="__button4"/>
+                    <RadioButton groupName="__group2" text="Rechnung (Zahlungsziel 30 Tage)" id="__button5"/>
+                </buttons>
+            </RadioButtonGroup>
+            <Label text="Vorraussichtlicher Preis" width="100%" id="__label9"/>
+            <sap.ui.layout:Grid id="__grid3">
+                <sap.ui.layout:content>
+                    <Label text="Packetpreis:" width="100%" id="__label11"/>
+                    <Label text="xxx" width="100%" id="__label12"/>
+                    <Label text="Vollkasko:" width="100%" id="__label13"/>
+                    <Label text="xxx" width="100%" id="__label14"/>
+                    <Label text="Gesamtpreis:" width="100%" id="__label15"/>
+                    <Label text="xxx" width="100%" id="__label16"/>
+                </sap.ui.layout:content>
+            </sap.ui.layout:Grid>
+            <CheckBox id="__box1" text="Ich habe die AGBs gelesen und möchte TROTZDEM reservieren"/>
+            <Button text="Jetzt reservieren" width="300px" id="__button0"/>
+        </sap.ui.layout:content>
+    </sap.ui.layout:Grid>
+</mvc:View>
