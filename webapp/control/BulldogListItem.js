@@ -18,6 +18,7 @@ sap.ui.define("rab.control.BulldogListItem", [
 				hours: "string",
 				bulldogClass: "string",
 				price: "string",
+				priceHourly: "string",
 				fullPrice: "string"
 			},
 
@@ -61,7 +62,7 @@ sap.ui.define("rab.control.BulldogListItem", [
 					fuehrerscheinklasse: that.getBulldogClass(),
 					farbe: that.getColor(),
 					tagespauschale: that.getPrice(),
-					preisProStunde: null,
+					preisProStunde: that.getPriceHourly(),
 					beschreibung: that.getDesc(),
 					von: null,
 					bis: null

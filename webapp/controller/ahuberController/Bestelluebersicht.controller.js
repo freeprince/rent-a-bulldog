@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (JSONModel, Controller, MessageToast, ahuberModels) {
     "use strict";
 
-    return Controller.extend("rab.view.ahuberView.controller.Bestelluebersicht", {
+    return Controller.extend("rab.controller.ahuberController.Bestelluebersicht", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -23,7 +23,7 @@ sap.ui.define([
             bulldogDetailModel.setProperty("/leistung", 750);
 
             // Setzen des Models in die View (Einbinden)
-            this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
+            //this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
         },
 
 
