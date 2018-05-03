@@ -109,6 +109,7 @@
                     year="{bulldogs>baujahr}"     
                     hours="{bulldogs>betriebsstunden}"     
                     bulldogClass="{bulldogs>klasse}"     
+                    priceHourly="{bulldogs>preis_pro_std}"
                     price="{path: 'bulldogs>preis_pro_tag',
                             formatter: '.formatter.price'
                             } {view>/currencyDaily}"
