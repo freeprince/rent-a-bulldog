@@ -18,6 +18,10 @@ sap.ui.define([
 		onRegister: function() {
 			let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("register");
+		},
+		onKundendetail: function(){
+		let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("kundenDetail");	
 		}
 	});
 });
