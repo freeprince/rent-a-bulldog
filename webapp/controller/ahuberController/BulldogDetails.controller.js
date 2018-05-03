@@ -36,7 +36,7 @@ sap.ui.define([
 			console.log(bulldogDetailModel);
 
 			// Setzen des Models in die View (Einbinden)
-			this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
+			//this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
 
 
 

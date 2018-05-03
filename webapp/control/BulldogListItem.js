@@ -48,10 +48,23 @@ sap.ui.define("rab.control.BulldogListItem", [
 
 		_onSelect: function(oEvent) {
 			let iId = this.getBulldogId();
+			let sManufacturer = this.getManufacturer();
+			let that = this;
 			console.log("clicked on bulldog:", iId);
 			this.fireEvent("press", {
 				value: {
-					bulldog_id: iId
+					bulldog_id: iId,
+					img_url: that.getImageSource(),
+					hersteller: sManufacturer,
+					modell: that.getModell(),
+					leistung: that.getPower(),
+					fuehrerscheinklasse: that.getBulldogClass(),
+					farbe: that.getColor(),
+					tagespauschale: that.getPrice(),
+					preisProStunde: null,
+					beschreibung: that.getDesc(),
+					von: null,
+					bis: null
 				}
             });            
 		},

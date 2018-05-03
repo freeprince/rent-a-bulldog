@@ -4,9 +4,13 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/resource/ResourceModel",
     "rab/util/Utils",
-    "rab/util/Formatter"
-], function (Controller, MessageToast, JSONModel, ResourceModel, Utils, Formatter) {
+    "rab/util/Formatter",
+    "jquery.sap.storage"
+], function (Controller, MessageToast, JSONModel, ResourceModel, Utils, Formatter, Storage) {
     "use strict";
+
+    let oStorage;
+
     return Controller.extend("rab.controller.Search", {
 
         useOData: true,
@@ -17,6 +21,14 @@ sap.ui.define([
 
             let oComponent = this.getOwnerComponent();
             let m = oComponent.getModel("crits");
+
+            // https://blogs.sap.com/2015/02/02/offline-storage-sapui5-using-indexeddb-jquery-api/
+            if (window.indexedDB == null) {
+                console.log("Offline store not supported");
+            } else {
+                console.log("Offline store supported");
+                var createDBRequest= window.indexedDB.open("rab_db", 1);                 
+            }
 
             let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
             m.setProperty("/duration", diffDays);
@@ -41,17 +53,20 @@ sap.ui.define([
                 currency: "€",
                 currencyDaily: "€ pro Tag"
             }), "view");
+            this.getView().setModel(new JSONModel({
+                value: diffDays
+            }), "duration");
         },
         onDetailClicked: function (oEvent) {
             let oSelectedBulldog = oEvent.getParameter("value");
             console.log(oSelectedBulldog);
 
-            let iId = oSelectedBulldog.bulldog_id;
+            let oComponent = this.getOwnerComponent();            
+            oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");             
 
-            // let oComponent = this.getOwnerComponent();
-            // //oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");             
             // let oService = oComponent.getModel("service");
 
+            // let iId = oSelectedBulldog.bulldog_id;
             // oService.read("/SearchResultSet(" + iId + ")", {
             //     success: function (oRetrievedResult) {
             //         console.log("/SearchResultSet(" + iId + ")", oRetrievedResult);
@@ -85,6 +100,8 @@ sap.ui.define([
             let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
             m.setProperty("/duration", diffDays);
 
+            this.getView().getModel("duration").setProperty("/value", diffDays);
+
             this.doSearch();
         },
         doSearch: function () {
@@ -98,23 +115,36 @@ sap.ui.define([
 
             if (this.useOData) {
 
+                let sd = oModelCrits.getProperty("/srcDate");
+                let parts = sd.split(".");
+                let srcDate = new Date(parts[2], parts[1], parts[0]);
+                let dd = oModelCrits.getProperty("/dstDate");
+                parts = dd.split(".");
+                let dstDate = new Date(parts[2], parts[1], parts[0]);
+
+                // srcDate = oModelCrits.getProperty("/srcDate");
+                // dstDate = oModelCrits.getProperty("/dstDate");
+
                 sap.ui.core.BusyIndicator.show(10);
 
                 // one with id            
                 // oService.read("/SearchResultSet(32)", {
                 // multiple
                 oService.read("/SearchResultSet", {
-                    // filters: [ new sap.ui.model.Filter({
-                    //     path: 'von',
-                    //     operator: sap.ui.model.FilterOperator.EQ,
-                    //     value1: '01.01.2018'
-                    // })],
+                    filters: [ 
+                        new sap.ui.model.Filter({
+                            path: 'von',
+                            operator: sap.ui.model.FilterOperator.BT,
+                            value1: srcDate,
+                            value2: dstDate
+                        })
+                    ],
                     success: function (oRetrievedResult) {
                         console.log("Search result success");
                         let bulldogs = oRetrievedResult.results;
                         // console.log(bulldogs);
                         bulldogs = { Bulldogs: bulldogs };
-                        //console.log(bulldogs);
+                        console.log(bulldogs);
 
                         for (let i = 0; i < bulldogs.Bulldogs.length; i++) {
                             let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
@@ -132,8 +162,14 @@ sap.ui.define([
                         sap.ui.core.BusyIndicator.hide();
                     },
                     error: function (oError) {
+                        sap.ui.core.BusyIndicator.hide();
                         console.log("Search result error");
                         console.log(oError);
+                        let responseText = JSON.parse(oError.responseText);
+                        console.log(responseText);
+                        let msg = responseText.error.message.value;
+                        MessageToast.show(msg);
+                        console.log(msg);
                     }
                 });
             } else {
