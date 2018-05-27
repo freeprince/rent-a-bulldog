@@ -1,17 +1,86 @@
 <core:View height="100%"
-		xmlns:core="sap.ui.core"
-		xmlns="sap.m"
-		xmlns:l="sap.ui.layout"
-		controllerName="rab.controller.nmarxController.Kundendetail">
-	<Page showHeader="false" class="sapUiContentPadding" showNavButton="false">
-		<l:VerticalLayout>
-			<l:content>
-				<Button id="quickViewBtn"
-						class="sapUiSmallMarginBottom"
-						text="Open QuickView"
-						width="200px"
-						press="handleQuickViewBtnPress" />
-			</l:content>
-		</l:VerticalLayout>
-	</Page>
+	xmlns:core="sap.ui.core"
+xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	controllerName="rab.controller.nmarxController.Kundendetail"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout">
+	<ScrollContainer id="initialScroller" height="100%" width="100%" horizontal="false" vertical="true" focusable="true">
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
+				<f:toolbar>
+					<Toolbar id="TB1">
+						<Title id="Title1" text="Registierung" level="H4" titleStyle="H4"/>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</f:toolbar>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+						emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer ariaLabelledBy="Title2">
+						<f:formElements>
+							<f:FormElement label="Anrede">
+								<f:fields>
+									<Select width="30%" id="anrede" placeholder="Herr / Frau" selectedKey="{Kundendaten>/Anrede}"
+										items="{ path: 'Anrede>/AnredeCollection', sorter: { path: 'text' } }">
+										<items>
+											<core:Item text="{Anrede>text}"/>
+										</items>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Vorname">
+								<f:fields>
+									<Input value="{Kundendaten>/Vorname}" type="text"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Nachname">
+								<f:fields>
+									<Input value="{Kundendaten>/Nachname}" type="text"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Straße, Hausnummer">
+								<f:fields>
+									<Input value="{Kundendaten>/Straße}" type="text"/>
+									<Input value="{Kundendaten>/Hausnummer}" type="text">
+										<layoutData>
+											<l:GridData span="XL2 L1 M3 S4"/>
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Plz, Ort">
+								<f:fields>
+									<Input value="{Kundendaten>/Plz}" type="text"/>
+									<Input value="{Kundendaten>/Ort}" type="text">
+										<layoutData>
+											<l:GridData span="XL2 L1 M3 S4"/>
+										</layoutData>
+									</Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="E-Mail *">
+								<f:fields>
+									<Input value="{Kundendaten>/EMail}" type="text"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Passwort *">
+								<f:fields>
+									<Input type="Password" value="{Kundendaten>/Passwort}"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Passwort bestätigen *">
+								<f:fields>
+									<Input type="Password" value="{Kundendaten>/Passwortbestätigung}"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		<mvc:XMLView viewName="rab.view.Footer"/>
+	</ScrollContainer>
 </core:View>

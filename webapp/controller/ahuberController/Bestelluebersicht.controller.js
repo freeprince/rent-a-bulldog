@@ -2,67 +2,92 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "rab/model/ahuberModels"
-], function (JSONModel, Controller, MessageToast, ahuberModels) {
+    "rab/util/Formatter",
+    "rab/util/Cookie"
+], function (JSONModel, Controller, MessageToast, Formatter, Cookie) {
     "use strict";
 
     return Controller.extend("rab.controller.ahuberController.Bestelluebersicht", {
 
-		/**
-		 * Called when a controller is instantiated and its View controls (if available) are already created.
-		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf rab.view.ahuberView.view.BulldogDetails
-		 */
+        formatter: Formatter,
+
         onInit: function () {
-            var bulldogDetailModel = ahuberModels.createBulldogModel();
 
+            var eventBus = sap.ui.getCore().getEventBus();
+            let c = Cookie.getCookie("bulldog");
+            console.log("Bestelluebersicht#onInit : cookie bulldog :", c);
+            if (c) {
+                let oSelectedBulldog = JSON.parse(c);
 
-            // Model befüllen
-            bulldogDetailModel.setProperty("/hersteller", "Deutz");
-            bulldogDetailModel.setProperty("/modell", "Carrar BD");
-            bulldogDetailModel.setProperty("/leistung", 750);
+                let oComponent = this.getOwnerComponent();
+                oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");
+                
+                let duration = oComponent.getModel("crits").getProperty("/duration");                
+                let preisProTag = parseFloat(oSelectedBulldog.tagespauschale.replace(",", "."));
+                let preisDauer = duration * preisProTag;
+                console.log("oSelectedBulldog:", oSelectedBulldog);
+                console.log("duration:", duration);
+                console.log("preisProTag:",  preisProTag);
+                console.log("preisDauer:",  preisDauer);
 
-            // Setzen des Models in die View (Einbinden)
-            //this.getView().setModel(bulldogDetailModel, "bulldogDetailModel");
+                this.getView().setModel(new JSONModel({
+                    Dauer: preisDauer,
+                    Paket: 0,
+                    Vollkasko: 0,
+                    Gesamt: 0
+                }), "preise");
+    
+                this.berechneGesamtpreis();
+            } else {
+                eventBus.publish("Root", "navToHome", null);
+            }
         },
 
-
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf rab.view.ahuberView.view.BulldogDetails
-		 */
-        //	onBeforeRendering: function() {
-        //
-        //	},
-
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf rab.view.ahuberView.view.BulldogDetails
-		 */
-        //	onAfterRendering: function() {
-        //
-        //	},
-
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf rab.view.ahuberView.view.BulldogDetails
-		 */
-        //	onExit: function() {
-        //
-        //	}
 
         onPaketChange: function (oEvent) {
-
+            let paketPreis = 0.0;
+            let rbId = oEvent.getSource().getId();
+            if (rbId.endsWith("Small")) {
+                paketPreis = 50.0;
+            } else if (rbId.endsWith("Medium")) {
+                paketPreis = 100.0;
+            } else if (rbId.endsWith("Large")) {
+                paketPreis = 200.0;
+            }
+            this.getView().getModel("preise").setProperty("/Paket", paketPreis);
+            this.berechneGesamtpreis();
         },
 
-        setPreis: function (auswahl) {
+        onVersicherungChange: function (oEvent) {
+            let preis = 0;
+            let b = oEvent.getSource().getSelected();
+            if (b)
+                preis = 100;
+            this.getView().getModel("preise").setProperty("/Vollkasko", preis);
+            this.berechneGesamtpreis();
+        },
+
+        berechneGesamtpreis: function () {
+            let m = this.getView().getModel("preise");
+            let dauerPreis = m.getProperty("/Dauer");
+            let paketPreis = m.getProperty("/Paket");
+            let vollkasko = m.getProperty("/Vollkasko");
+            let gesamt = dauerPreis + paketPreis + vollkasko;
+            m.setProperty("/Gesamt", gesamt);
 
         },
 
         onJetztBestellenPress: function (oEvent) {
             // Prüfungen
+            let cb = this.byId("cbAgb");
+            if (cb.getSelected()) {
+                console.log("agbs akzeptiert");
+            } else {
+                MessageToast.show("Kein Bestellung ohne die AGBs gelesen und akzeptiert zu haben!");
+                return;
+            }
+
+            Cookie.eraseCookie("bulldog");
 
             //let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             //oRouter.navTo("BestellungErfolgreich");

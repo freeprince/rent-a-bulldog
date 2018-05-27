@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		title="{user>/EMail}"
+		class="sapUiContentPadding"
+		placement="Bottom"
+		initialFocus="btnDetails">
+		<footer>
+			<Toolbar>
+				<Button id="btnLogout" text="Abmelden" press="onLogout"/>
+			</Toolbar>
+		</footer>
+		<VBox>
+			<Button id="btnDetails" text="Account Details" press="onDetails"/>
+		</VBox>
+	</Popover>
+</core:FragmentDefinition>

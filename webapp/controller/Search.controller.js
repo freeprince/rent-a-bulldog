@@ -5,30 +5,20 @@ sap.ui.define([
     "sap/ui/model/resource/ResourceModel",
     "rab/util/Utils",
     "rab/util/Formatter",
-    "jquery.sap.storage"
-], function (Controller, MessageToast, JSONModel, ResourceModel, Utils, Formatter, Storage) {
+    "rab/util/Cookie"
+], function (Controller, MessageToast, JSONModel, ResourceModel, Utils, Formatter, Cookie) {
     "use strict";
-
-    let oStorage;
 
     return Controller.extend("rab.controller.Search", {
 
-        useOData: true,
+        useOData: false,
 
         formatter: Formatter,
 
-        onInit: function () {               
+        onInit: function () {
 
             let oComponent = this.getOwnerComponent();
             let m = oComponent.getModel("crits");
-
-            // https://blogs.sap.com/2015/02/02/offline-storage-sapui5-using-indexeddb-jquery-api/
-            if (window.indexedDB == null) {
-                console.log("Offline store not supported");
-            } else {
-                console.log("Offline store supported");
-                var createDBRequest= window.indexedDB.open("rab_db", 1);                 
-            }
 
             let diffDays = Utils.getDiffDays(m.getData().srcDate, m.getData().dstDate);
             m.setProperty("/duration", diffDays);
@@ -61,17 +51,10 @@ sap.ui.define([
             let oSelectedBulldog = oEvent.getParameter("value");
             console.log(oSelectedBulldog);
 
-            let oComponent = this.getOwnerComponent();            
-            oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");             
+            let oComponent = this.getOwnerComponent();
+            oComponent.setModel(new JSONModel(oSelectedBulldog), "bulldogDetailModel");
 
-            // let oService = oComponent.getModel("service");
-
-            // let iId = oSelectedBulldog.bulldog_id;
-            // oService.read("/SearchResultSet(" + iId + ")", {
-            //     success: function (oRetrievedResult) {
-            //         console.log("/SearchResultSet(" + iId + ")", oRetrievedResult);
-            //     }
-            // });
+            Cookie.setCookie("bulldog", JSON.stringify(oSelectedBulldog), 7);
 
             let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("details");
@@ -131,7 +114,7 @@ sap.ui.define([
                 // oService.read("/SearchResultSet(32)", {
                 // multiple
                 oService.read("/SearchResultSet", {
-                    filters: [ 
+                    filters: [
                         new sap.ui.model.Filter({
                             path: 'von',
                             operator: sap.ui.model.FilterOperator.BT,

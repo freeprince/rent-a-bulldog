@@ -10,12 +10,14 @@
 					</HBox>
 				</contentLeft>
 				<contentRight>
-					<f:Avatar src="sap-icon://customer" press="onKundendetail"></f:Avatar>
-					<Button text="Anmelden" press="onLogin"/>
-					<Button text="Registrieren" press="onRegister"/>
-					
+					<HBox>
+						<Text text="{user>/EMail}" class="sapUiSmallMargin"/>
+						<f:Avatar id="btnUser" src="sap-icon://customer" press="onKundendetail"/>
+						<Button id="btnLogin" text="Anmelden" press="onLogin"/>
+						<Button id="btnRegister" text="Registrieren" press="onRegister"/>
+					</HBox>
 				</contentRight>
-				<contentMiddle></contentMiddle>
+				<contentMiddle/>
 			</Bar>
 		</customHeader>
 		<NavContainer id="parentNavContainer">

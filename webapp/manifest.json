@@ -63,7 +63,10 @@
 				{
 					"pattern": "",
 					"name": "home",
-					"target": ["root", "initial"]
+					"target": [
+						"root",
+						"initial"
+					]
 				},
 				{
 					"pattern": "initial",
@@ -96,6 +99,11 @@
 					"target": "login"
 				},
 				{
+					"pattern": "kundenDetail",
+					"name": "kundenDetail",
+					"target": "kundenDetail"
+				},
+				{
 					"pattern": "details",
 					"name": "details",
 					"target": "details"
@@ -104,7 +112,8 @@
 					"pattern": "register",
 					"name": "register",
 					"target": "register"
-				},{
+				},
+				{
 					"pattern": "Bestelluebersicht",
 					"name": "Bestelluebersicht",
 					"target": "Bestelluebersicht"
@@ -137,7 +146,7 @@
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"impressum": {
 					"viewId": "impressum",
@@ -145,7 +154,7 @@
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"company": {
 					"viewId": "company",
@@ -153,43 +162,43 @@
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"login": {
 					"viewId": "login",
-        			"viewPath": "rab.view.nmarxView.view",
+					"viewPath": "rab.view.nmarxView.view",
 					"viewName": "Login",
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"register": {
 					"viewId": "register",
-        			"viewPath": "rab.view.nmarxView.view",
+					"viewPath": "rab.view.nmarxView.view",
 					"viewName": "Registrierung",
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
-					"kundenDetail": {
+				"kundenDetail": {
 					"viewId": "kundenDetail",
-        			"viewPath": "rab.view.nmarxView.view",
+					"viewPath": "rab.view.nmarxView.view",
 					"viewName": "Kundendetail",
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"details": {
 					"viewId": "details",
-        			"viewPath": "rab.view.ahuberView",
+					"viewPath": "rab.view.ahuberView",
 					"viewName": "BulldogDetails",
 					"viewLevel": 2,
 					"parent": "root",
 					"controlId": "parentNavContainer",
-					"controlAggregation": "pages"					
+					"controlAggregation": "pages"
 				},
 				"notFound": {
 					"viewName": "NotFound",

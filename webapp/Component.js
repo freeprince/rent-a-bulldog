@@ -1,19 +1,19 @@
 sap.ui.define([
-   "sap/ui/core/UIComponent",
-   "sap/ui/model/json/JSONModel",
-   "sap/ui/model/resource/ResourceModel",
-   "rab/model/models",
-   "sap/ui/model/odata/v2/ODataModel"
+    "sap/ui/core/UIComponent",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/resource/ResourceModel",
+    "rab/model/models",
+    "sap/ui/model/odata/v2/ODataModel"
 ], function (UIComponent, JSONModel, ResourceModel, models, ODataModel) {
     "use strict";
     return UIComponent.extend("rab.Component", {
-        metadata : {
+        metadata: {
             manifest: "json"
         },
-        init : function () {
+        init: function () {
             // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
-            
+
             let i18n = new ResourceModel({
                 bundleName: "rab.i18n.i18n"
             });
@@ -27,43 +27,43 @@ sap.ui.define([
                 Klasse: []
             });
             this.setModel(oModelFilter, "filter");
-            
+
             let oModelUser = new JSONModel({
-            	EMail:""
+                EMail: ""
             });
             this.setModel(oModelUser, "user");
-            
-            let oModelKunden = new JSONModel({
-            	Kunden: []
-            });
-            this.setModel(oModelKunden,"Kundendaten");
 
-			// Webservice Url
-            let url = window.location.protocol + "//ux5.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
-            // let url = window.location.protocol + "//ux5.edvschulen-plattling.de/~agabel/sap/proxy/ajax_proxy.php?route=/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
-			//  Anmeldeheader
-			var header = {
-				"Authorization": "Basic " + btoa("f12:xaxt")
-            };
-            // parameter
-            let params = {
-                json: true,
-                user: "",
-                password: "",
-                header: header
-            };
-            let oModelOdata = new ODataModel(url, params);
-			// ohne folgende Attribute geht der odataServer nicht
-            this.setModel(oModelOdata, "service");
-			oModelOdata.bDisableHeadRequestForToken = true;
-			oModelOdata.bUseBatch = false;
-			oModelOdata.refresh();
+            let oModelKunden = new JSONModel({
+                Kunden: []
+            });
+            this.setModel(oModelKunden, "Kundendaten");
+
+            // // Webservice Url
+            // let url = window.location.protocol + "//vpn.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
+            // // let url = window.location.protocol + "//ux5.edvschulen-plattling.de/~agabel/sap/proxy/ajax_proxy.php?route=/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
+            // //  Anmeldeheader
+            // var header = {
+            // 	"Authorization": "Basic " + btoa("f12:xaxt")
+            // };
+            // // parameter
+            // let params = {
+            //     json: true,
+            //     user: "",
+            //     password: "",
+            //     header: header
+            // };
+            // let oModelOdata = new ODataModel(url, params);
+            // // ohne folgende Attribute geht der odataServer nicht
+            // this.setModel(oModelOdata, "service");
+            // oModelOdata.bDisableHeadRequestForToken = true;
+            // oModelOdata.bUseBatch = false;
+            // oModelOdata.refresh();
 
             // set the device model
             let oModelDevice = models.createDeviceModel();
-			this.setModel(oModelDevice , "device");
+            this.setModel(oModelDevice, "device");
 
-            this.getRouter().initialize();            
+            this.getRouter().initialize();
         },
         loadODataCrits: function () {
 
