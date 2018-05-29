@@ -3,7 +3,7 @@
         {
             "hersteller": "John Deere",
             "modell": "317",
-            "Klasse": "L",
+            "klasse": "L",
             "farbe": "Grün/Gelb",
             "beschriebung": "Inkl. Sitzheizung",
             "leistung": 8,
@@ -14,7 +14,7 @@
         {
             "hersteller": "Bautz",
             "modell": "AL 122",
-            "Klasse": "T",
+            "klasse": "T",
             "farbe": "Grün",
             "beschriebung": "Oldtimer",
             "leistung": 87,
@@ -25,7 +25,7 @@
         {
             "hersteller": "Claas",
             "modell": "Ares 500",
-            "Klasse": "T",
+            "klasse": "T",
             "farbe": "Grün",
             "beschriebung": "Frontlader",
             "leistung": 71,
@@ -36,7 +36,7 @@
         {
             "hersteller": "Claas",
             "modell": "Ares 600",
-            "Klasse": "T",
+            "klasse": "T",
             "farbe": "Grün",
             "beschriebung": "Altmodisches Fahrwerk",
             "leistung": 171,
@@ -47,7 +47,7 @@
         {
             "hersteller": "Claas",
             "modell": "Ares 700",
-            "Klasse": "T",
+            "klasse": "T",
             "farbe": "Grün",
             "beschriebung": "Altmodisches Fahrwerk",
             "leistung": 271,
@@ -58,7 +58,7 @@
         {
             "hersteller": "Deutz",
             "modell": "FM315",
-            "Klasse": "L",
+            "klasse": "L",
             "farbe": "Grau",
             "beschriebung": "FWD",
             "leistung": 574,
@@ -69,7 +69,7 @@
         {
             "hersteller": "Deutz",
             "modell": "FM317",
-            "Klasse": "L",
+            "klasse": "L",
             "farbe": "Blau",
             "beschriebung": "Oldtimer",
             "leistung": 274,

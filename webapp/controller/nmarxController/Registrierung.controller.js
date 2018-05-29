@@ -11,7 +11,10 @@ sap.ui.define([
 
 			// set explored app's demo model on this sample
 			var oModel = new JSONModel({
-				AnredeCollection: [{ text: "Herr" }, { text: "Frau" }]
+				AnredeCollection: [
+					{ text: "Herr" }, 
+					{ text: "Frau" }
+				]
 			});
 			this.getView().setModel(oModel, "Anrede");
 
@@ -22,6 +25,8 @@ sap.ui.define([
 				Hausnummer: "",
 				Plz: "",
 				Ort: "",
+				FSchein: "",
+				Geburtsdatum: "",
 				EMail: "",
 				Passwort: "",
 				Passwortbestätigung: ""
@@ -58,6 +63,8 @@ sap.ui.define([
 				Hausnummer: "",
 				Plz: "",
 				Ort: "",
+				FSchein: "",
+				Geburtsdatum: "",
 				EMail: "",
 				Passwort: "",
 				Passwortbestätigung: ""

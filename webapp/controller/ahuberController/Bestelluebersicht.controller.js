@@ -89,9 +89,8 @@ sap.ui.define([
 
             Cookie.eraseCookie("bulldog");
 
-            //let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            //oRouter.navTo("BestellungErfolgreich");
             MessageToast.show("Bulldog erfolgreich bestellt");
+            eventBus.publish("Root", "navToHome", null);
         }
     });
 

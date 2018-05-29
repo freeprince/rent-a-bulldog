@@ -13,6 +13,9 @@ sap.ui.define([
 		onInit: function () {
 			let c = Cookie.getCookie("kunde");
 			let data = JSON.parse(c);
+			if (data == null) {
+				return;
+			}
 
 			let c2 = Cookie.getCookie("kundenliste");
 			let kundenliste = JSON.parse(c2);
