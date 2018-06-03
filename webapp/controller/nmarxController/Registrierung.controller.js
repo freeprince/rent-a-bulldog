@@ -19,6 +19,7 @@ sap.ui.define([
 			this.getView().setModel(oModel, "Anrede");
 
 			this.getView().setModel(new JSONModel({
+				Anrede: "",
 				Vorname: "",
 				Nachname: "",
 				Straße: "",
@@ -44,6 +45,9 @@ sap.ui.define([
 				return;
 			}
 
+			let valueAnrede = this.byId("anrede").getSelectedKey();
+			kDaten.Anrede = valueAnrede;
+
 			let liste = Cookie.getCookie("kundenliste")
 			if (!liste) {
 				liste = [];
@@ -57,6 +61,7 @@ sap.ui.define([
 			console.log(liste);
 
 			this.getView().setModel(new JSONModel({
+				Anrede: "",
 				Vorname: "",
 				Nachname: "",
 				Straße: "",
@@ -71,6 +76,12 @@ sap.ui.define([
 			}), "Kundendaten");
 			
 			Cookie.setCookie("kunde", JSON.stringify(kDaten), 1);
+			
+			let oComponent = this.getOwnerComponent();
+			let m = oComponent.getModel("user");
+			m.setProperty("/EMail", kDaten.EMail);
+			m.setProperty("/Vorname", kDaten.Vorname);
+			m.setProperty("/Nachname", kDaten.Nachname);
 
 			var eventBus = sap.ui.getCore().getEventBus();
 			eventBus.publish("Root", "login", kDaten);

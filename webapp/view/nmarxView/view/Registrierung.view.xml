@@ -10,7 +10,7 @@
 			<f:Form id="FormToolbar" editable="true" ariaLabelledBy="Title1">
 				<f:toolbar>
 					<Toolbar id="TB1">
-						<Title id="Title1" text="Registierung" level="H4" titleStyle="H4"/>
+						<Title id="Title1" text="Registrierung" level="H4" titleStyle="H4"/>
 						<ToolbarSpacer/>
 					</Toolbar>
 				</f:toolbar>
@@ -26,7 +26,7 @@
 									<Select width="30%" id="anrede" placeholder="Herr / Frau" selectedKey="{Kundendaten>/Anrede}"
 										items="{ path: 'Anrede>/AnredeCollection', sorter: { path: 'text' } }">
 										<items>
-											<core:Item text="{Anrede>text}"/>
+											<core:Item key="{Anrede>text}" text="{Anrede>text}"/>
 										</items>
 									</Select>
 								</f:fields>
@@ -69,11 +69,6 @@
 							<f:FormElement label="Geburtsdatum">
 								<f:fields>
 									<Input value="{Kundendaten>/Geburtsdatum}" type="text"/>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Vorname">
-								<f:fields>
-									<Input value="{Kundendaten>/Vorname}" type="text"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="E-Mail *">

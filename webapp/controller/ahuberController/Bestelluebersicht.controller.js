@@ -74,7 +74,6 @@ sap.ui.define([
             let vollkasko = m.getProperty("/Vollkasko");
             let gesamt = dauerPreis + paketPreis + vollkasko;
             m.setProperty("/Gesamt", gesamt);
-
         },
 
         onJetztBestellenPress: function (oEvent) {
@@ -90,6 +89,7 @@ sap.ui.define([
             Cookie.eraseCookie("bulldog");
 
             MessageToast.show("Bulldog erfolgreich bestellt");
+            var eventBus = sap.ui.getCore().getEventBus();
             eventBus.publish("Root", "navToHome", null);
         }
     });

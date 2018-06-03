@@ -34,6 +34,8 @@ sap.ui.define([
 			}
 
 			if (erfolg) {
+				$(".lbl-err").hide();
+
 				this.getView().setModel(new JSONModel({
 					EMail: "",
 					Passwort: ""
@@ -42,6 +44,8 @@ sap.ui.define([
 				let oComponent = this.getOwnerComponent();
 				let m = oComponent.getModel("user");
 				m.setProperty("/EMail", kDaten.EMail);
+				m.setProperty("/Vorname", kDaten.Vorname);
+				m.setProperty("/Nachname", kDaten.Nachname);
 	
 				Cookie.eraseCookie("kunde");
 
@@ -57,6 +61,8 @@ sap.ui.define([
 				} else {
 					eventBus.publish("Root", "navToHome", null);
 				}
+			} else {
+				$(".lbl-err").show();
 			}
 		}
 	});

@@ -1,18 +1,26 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Popover
 		title="{user>/EMail}"
 		class="sapUiContentPadding"
-		placement="Bottom"
-		initialFocus="btnDetails">
-		<footer>
-			<Toolbar>
-				<Button id="btnLogout" text="Abmelden" press="onLogout"/>
-			</Toolbar>
-		</footer>
+		placement="Bottom">
 		<VBox>
-			<Button id="btnDetails" text="Account Details" press="onDetails"/>
+			<Text text="Hallo {user>/Vorname} {user>/Nachname}"
+				class="sapUiTinyMarginBottom"/>
+			<html:hr class="sapUiSmallMarginBottom"/>
+			<Link text="Meine Einstellungen"
+				press="onDetails"
+				class="sapUiSmallMarginBottom user-link"/>
+			<Link text="Meine Reservierungen"
+				class="sapUiTinyMarginBottom user-link"/>
+			<html:hr class="sapUiTinyMarginBottom"/>
+			<Link text="Abmelden"
+				press="onLogout"
+				class="sapUiTinyMarginTop user-link"/>
 		</VBox>
 	</Popover>
 </core:FragmentDefinition>

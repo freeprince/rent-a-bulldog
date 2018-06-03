@@ -9,15 +9,11 @@ sap.ui.define([
 		onInit: function () {
 			// anmeldung beim laden seite löschen
 			// Cookie.eraseCookie("kunde");
-			let c = Cookie.getCookie("kunde");
-			if (c) {				
-				let oComponent = this.getOwnerComponent();
-				let m = oComponent.getModel("user");
-				m.setProperty("/EMail", JSON.parse(c).EMail);
-			}
+			this.setLoginDaten();
 
 			let oEventBus = sap.ui.getCore().getEventBus();
 			oEventBus.subscribe("Root", "login", this.pruefeLogin, this);
+			oEventBus.subscribe("Root", "setLogin", this.setLoginDaten, this);
 			oEventBus.subscribe("Root", "navToHome", this.onHeaderPressed, this);
 			oEventBus.subscribe("Root", "navToDetail", function () {
 				let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -26,6 +22,17 @@ sap.ui.define([
 
 
 			this.pruefeLogin();
+		},
+		setLoginDaten: function () {
+			let c = Cookie.getCookie("kunde");
+			if (c) {
+				let oComponent = this.getOwnerComponent();
+				let m = oComponent.getModel("user");
+				let kDaten = JSON.parse(c);
+				m.setProperty("/EMail", kDaten.EMail);
+				m.setProperty("/Vorname", kDaten.Vorname);
+				m.setProperty("/Nachname", kDaten.Nachname);
+			}
 		},
 		onExit: function () {
 			let oEventBus = sap.ui.getCore().getEventBus();
@@ -71,6 +78,8 @@ sap.ui.define([
 			let oComponent = this.getOwnerComponent();
 			let m = oComponent.getModel("user");
 			m.setProperty("/EMail", "");
+			m.setProperty("/Vorname", "");
+			m.setProperty("/Nachname", "");
 			Cookie.eraseCookie("kunde");
 			this.pruefeLogin();
 			this.onHeaderPressed();

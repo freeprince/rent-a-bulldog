@@ -226,3 +226,17 @@ body,
         display: block;
     }
 }
+
+/* ##################
+   #     Login      #
+   ################## */
+
+.lbl-err {
+    color: red;
+    display: none;    
+}
+
+.user-link, .user-link:hover, .user-link:visited, .user-link:active {
+    color: black;
+    text-decoration: none;
+}

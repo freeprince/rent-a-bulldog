@@ -1,20 +1,30 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
 	controllerName="rab.controller.nmarxController.Login">
-	<ScrollContainer id="initialScroller" height="100%" width="100%" horizontal="false" vertical="true" focusable="true">
+	<ScrollContainer id="initialScroller"
+		height="100%"
+		width="100%"
+		horizontal="false"
+		vertical="true"
+		focusable="true">
 		<FlexBox width="auto" alignItems="Center" justifyContent="Center">
-			<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form1"
+			<sap.ui.layout.form:SimpleForm id="__form1"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				xmlns:sap.ui.layout.form="sap.ui.layout.form"
 				width="auto">
 				<sap.ui.layout.form:content>
-				
-						<Label text="E-Mail" design="Bold"/>
+					<Label text="E-Mail" design="Bold"/>
 					<Input value="{Kundendaten>/EMail}"/>
 					<Label text="Passwort" design="Bold"/>
 					<Input type="Password" value="{Kundendaten>/Passwort}"/>
-						</sap.ui.layout.form:content>
+				</sap.ui.layout.form:content>
 			</sap.ui.layout.form:SimpleForm>
 		</FlexBox>
 		<FlexBox width="auto" alignItems="Center" justifyContent="Center">
-			<Button text="Anmelden" press="anmelden" design="Bold"></Button>
+			<Button text="Anmelden" press="anmelden" design="Bold"/>
+		</FlexBox>
+		<FlexBox width="auto" alignItems="Center" justifyContent="Center">
+			<Label text="E-Mail und/oder Passwort ist falsch" class="lbl-err"/>
 		</FlexBox>
 		<mvc:XMLView viewName="rab.view.Footer"/>
 	</ScrollContainer>
