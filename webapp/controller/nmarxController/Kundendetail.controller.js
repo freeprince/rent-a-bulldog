@@ -12,7 +12,7 @@ sap.ui.define([
 
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.getRoute("kundenDetail").attachMatched(this.handleRouteMatched, this);
+			oRouter.getRoute("kundenDetail").attachMatched(this.handleRouteMatched, this);
 		},
 
 		handleRouteMatched: function (evt) {
@@ -24,16 +24,7 @@ sap.ui.define([
 				return;
 			}
 
-			// let c2 = Cookie.getCookie("kundenliste");
-			// let kundenliste = JSON.parse(c2);
-			// for (let i in kundenliste) {
-			// 	let kunde = kundenliste[i];
-			// 	if (kunde.EMail == data.EMail) {
-			// 		data = kunde;
-			// 		break;
-			// 	}
-			// }
-
+			//Kundendaten in "Meine Einstellungen" werden angezeigt
 			let oModel = new JSONModel(data);
 			this.getView().setModel(oModel, "Kundendaten");
 		},
@@ -47,22 +38,6 @@ sap.ui.define([
 			Cookie.eraseCookie("kunde");
 			Cookie.setCookie("kunde", JSON.stringify(kDaten), 7);
 
-			// let c2 = Cookie.getCookie("kundenliste");
-			// let kundenliste = JSON.parse(c2);
-
-			// let neueListe = [];
-			// for (let i in kundenliste) {
-			// 	let kunde = kundenliste[i];
-			// 	if (kunde.EMAIL == kDaten.EMAIL) {
-			// 		neueListe.push(kDaten);
-			// 	} else {
-			// 		neueListe.push(kunde);
-			// 	}
-			// }
-			// kundenliste = neueListe;
-
-			// Cookie.setCookie("kundenliste", JSON.stringify(kundenliste), 7);
-
 			var eventBus = sap.ui.getCore().getEventBus();
 			eventBus.publish("Root", "setLogin");
 
@@ -73,7 +48,7 @@ sap.ui.define([
 		}
 	});
 
-
 	return CController;
 
 });
+

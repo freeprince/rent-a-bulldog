@@ -14,15 +14,16 @@ sap.ui.define([
 			}), "Kundendaten");
 		},
 
+		//pruefen ob angemeldet werden kann
 		anmelden: function () {
 			let that = this;
 			let kDaten = this.getView().getModel("Kundendaten").getData();
 
 			let oServiceKunde = this.getOwnerComponent().getModel("serviceKunde");
 			oServiceKunde.read("/ZANA_KUNDE", {
-				success: function (oRetrievedResult) {
+				success: function (oRueckgabeWebservice) {
 					console.log("Kunde success");
-					let kunden = oRetrievedResult.results;
+					let kunden = oRueckgabeWebservice.results;
 					console.log(kunden);
 
 					let erfolg = false;
@@ -47,10 +48,11 @@ sap.ui.define([
 							break;
 						}
 					}
-
+					//wenn Anmeldung erfolgreich, wird Fehlermeldung verborgen
 					if (erfolg) {
 						$(".lbl-err").hide();
 
+						//hier wird das Model initialisiert
 						that.getView().setModel(new JSONModel({
 							EMail: "",
 							Passwort: ""
@@ -61,6 +63,7 @@ sap.ui.define([
 						m.setProperty("/Vorname", kunde.VORNAME);
 						m.setProperty("/Nachname", kunde.NACHNAME);
 
+						//wenn ein Kunde vorhanden, wird dieser rausgelöscht
 						Cookie.eraseCookie("kunde");
 
 						MessageToast.show("Anmeldung war erfolgreich");
@@ -69,6 +72,7 @@ sap.ui.define([
 						var eventBus = sap.ui.getCore().getEventBus();
 						eventBus.publish("Root", "login", kunde);
 
+						//hier wird geprüft ob der Kunde bei Bulldogdetail ist, wenn ja wird er dementprechend geleitet
 						let c3 = Cookie.getCookie("bulldog");
 						if (c3) {
 							eventBus.publish("Root", "navToDetail", null);
@@ -93,3 +97,4 @@ sap.ui.define([
 	});
 
 });
+

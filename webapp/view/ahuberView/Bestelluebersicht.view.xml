@@ -1,107 +1,75 @@
-<mvc:View
-    xmlns:core="sap.ui.core"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m" controllerName="rab.controller.ahuberController.Bestelluebersicht"
+<mvc:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" controllerName="rab.controller.ahuberController.Bestelluebersicht" 
     xmlns:html="http://www.w3.org/1999/xhtml">
     <ScrollContainer id="initialScroller" height="100%" width="100%" horizontal="false" vertical="true" focusable="true">
-        <sap.ui.layout:Grid
+        <sap.ui.layout:Grid 
             xmlns:sap.ui.layout="sap.ui.layout" defaultSpan="XL12 L12 M12 S12">
             <sap.ui.layout:content>
                 <sap.ui.layout:Grid defaultSpan="XL6 L6 M6 S12">
                     <sap.ui.layout:content>
                         <Image src="{bulldogDetailModel>/img_url}" width="100%" height="100%"/>
-                        <sap.ui.layout:Grid>
+                        <sap.ui.layout:Grid defaultSpan="XL6 L6 M6 S12">
                             <sap.ui.layout:content>
-                                <Label text="Hersteller:" width="100%" />
-                                <Label text="{bulldogDetailModel>/hersteller}" width="100%" />
-                                <Label text="Modell:" width="100%" />
-                                <Label text="{bulldogDetailModel>/modell}" width="100%" />
-                                <Label text="Leistung:" width="100%" />
-                                <Label text="{bulldogDetailModel>/leistung}" width="100%" />
+                                <Label text="Hersteller:" width="100%"/>
+                                <Label text="{bulldogDetailModel>/hersteller}" width="100%"/>
+                                <Label text="Modell:" width="100%"/>
+                                <Label text="{bulldogDetailModel>/modell}" width="100%"/>
+                                <Label text="Leistung:" width="100%"/>
+                                <Label text="{bulldogDetailModel>/leistung}" width="100%"/>
                             </sap.ui.layout:content>
                         </sap.ui.layout:Grid>
                     </sap.ui.layout:content>
                 </sap.ui.layout:Grid>
-                <Label text="Mietdauer" width="100%" />
+                <Label text="Mietdauer" width="100%"/>
                 <HBox width="100%">
                     <VBox class="sapUiSmallMargin">
-                        <Label text="{i18n>search.crits.von}"
-                            class="sapThemeHighlight-asColor" />
-                        <Label
-                            id="lblSrcDate"
-                            text="{crits>/srcDate}"
-                            formatter="rab.util.Types.DATE"/>
+                        <Label text="{i18n>search.crits.von}" class="sapThemeHighlight-asColor"/>
+                        <Label id="lblSrcDate" text="{crits>/srcDate}" formatter="rab.util.Types.DATE"/>
                     </VBox>
                     <VBox class="sapUiSmallMargin">
-                        <Label text="{i18n>search.crits.bis}"
-                            class="sapThemeHighlight-asColor" />
-                        <Label
-                            id="lblDstDate"
-                            text="{crits>/dstDate}"
-                            value="{crits>/dstDate}"/>
+                        <Label text="{i18n>search.crits.bis}" class="sapThemeHighlight-asColor"/>
+                        <Label id="lblDstDate" text="{crits>/dstDate}" value="{crits>/dstDate}"/>
                     </VBox>
                     <VBox class="sapUiSmallMargin">
-                        <Label text="Dauer"
-                            class="sapThemeHighlight-asColor" />
-                        <Label
-                            id="lblDuration"
-                            text="{crits>/duration} Tag(e)"
-                            value="{crits>/duration}"/>
+                        <Label text="Dauer" class="sapThemeHighlight-asColor"/>
+                        <Label id="lblDuration" text="{crits>/duration} Tag(e)" value="{crits>/duration}"/>
                     </VBox>
                 </HBox>
-                <Label text="Paketauswahl" width="100%" />
+                <Label text="Paketauswahl" width="100%"/>
                 <RadioButtonGroup width="100%" selectedIndex="3">
                     <buttons>
-                        <RadioButton
-                            select="onPaketChange"
-                            id="rbPaketSmall"
-                            text="Inklusive 5 Tage + 25 Betriebsstunden" />
-                        <RadioButton
-                            select="onPaketChange"
-                            id="rbPaketMedium"
-                            text="Inklusive 10 Tage + 50 Betriebsstunden" />
-                        <RadioButton
-                            select="onPaketChange"
-                            id="rbPaketLarge"
-                            text="Inklusive 30 Tage + 100 Betriebsstunden"/>
-                        <RadioButton
-                            select="onPaketChange"
-                            id="rbPaketNone"
-                            text="Kein Paket"/>
+                        <RadioButton select="onPaketChange" id="rbPaketSmall" text="Inklusive 5 Tage + 25 Betriebsstunden"/>
+                        <RadioButton select="onPaketChange" id="rbPaketMedium" text="Inklusive 10 Tage + 50 Betriebsstunden"/>
+                        <RadioButton select="onPaketChange" id="rbPaketLarge" text="Inklusive 30 Tage + 100 Betriebsstunden"/>
+                        <RadioButton select="onPaketChange" id="rbPaketNone" text="Kein Paket"/>
                     </buttons>
                 </RadioButtonGroup>
                 <Label text="Versicherungsschutz" width="100%"/>
                 <CheckBox text="Vollkasko versichert + 100€" select="onVersicherungChange"/>
-                <Label text="Zahlungsart" width="100%" />
+                <Label text="Zahlungsart" width="100%"/>
                 <RadioButtonGroup width="100%">
                     <buttons>
-                        <RadioButton selected="true" text="Barzahlung" />
-                        <RadioButton text="Rechnung (Zahlungsziel 30 Tage)" />
+                        <RadioButton selected="true" text="Barzahlung"/>
+                        <RadioButton text="Rechnung (Zahlungsziel 30 Tage)"/>
                     </buttons>
                 </RadioButtonGroup>
                 <Label text="Vorraussichtlicher Preis" width="100%" id="__label9"/>
                 <sap.ui.layout:Grid>
                     <sap.ui.layout:content>
-                        <Label text="Mietdauer:" width="100%" />
-                        <Label text="{path: 'preise>/Dauer',
-                                    formatter: '.formatter.price'
-                                    } €" width="100%" />
-                        <Label text="Paketpreis:" width="100%" />
-                        <Label text="{path: 'preise>/Paket',
-                                    formatter: '.formatter.price'
-                                    } €" width="100%" />
-                        <Label text="Vollkasko:" width="100%" />
-                        <Label text="{path: 'preise>/Vollkasko',
-                                    formatter: '.formatter.price'
-                                    } €" width="100%" />
-                        <Label text="Gesamtpreis:" width="100%" />
-                        <Label text="{path: 'preise>/Gesamt',
-                                    formatter: '.formatter.price'
-                                    } €" width="100%" />
+                        <Label text="Mietdauer:" width="100%"/>
+                        <Label text="{path: 'preise>/Dauer',                                     formatter: '.formatter.price'                                     } €" width="100%"/>
+                        <Label text="Paketpreis:" width="100%"/>
+                        <Label text="{path: 'preise>/Paket',                                     formatter: '.formatter.price'                                     } €" width="100%"/>
+                        <Label text="Vollkasko:" width="100%"/>
+                        <Label text="{path: 'preise>/Vollkasko',                                     formatter: '.formatter.price'                                     } €" width="100%"/>
+                        <Label text="Gesamtpreis:" width="100%"/>
+                        <Label text="{path: 'preise>/Gesamt',                                     formatter: '.formatter.price'                                     } €" width="100%"/>
                     </sap.ui.layout:content>
                 </sap.ui.layout:Grid>
                 <CheckBox id="cbAgb" text="Ich habe die AGBs gelesen und akzeptiert"/>
-                <Button text="Jetzt reservieren" width="300px" press="onJetztBestellenPress" />
+                <Button text="Jetzt reservieren" width="300px" press="onJetztBestellenPress"/>
             </sap.ui.layout:content>
         </sap.ui.layout:Grid>
         <mvc:XMLView viewName="rab.view.Footer"/>
