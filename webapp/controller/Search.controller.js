@@ -11,7 +11,7 @@ sap.ui.define([
 
     return Controller.extend("rab.controller.Search", {
 
-        useOData: false,
+        useOData: true,
 
         formatter: Formatter,
 
@@ -127,7 +127,6 @@ sap.ui.define([
                         let bulldogs = oRetrievedResult.results;
                         // console.log(bulldogs);
                         bulldogs = { Bulldogs: bulldogs };
-                        console.log(bulldogs);
 
                         for (let i = 0; i < bulldogs.Bulldogs.length; i++) {
                             let preis_gesamt = bulldogs.Bulldogs[i].preis_pro_tag;
@@ -188,7 +187,7 @@ sap.ui.define([
             m.setProperty("/klasse/L", false);
 
             for (let sValue in aSelected) {
-                sValue
+                sValue = aSelected[sValue];
                 if (sValue == 'T') {
                     m.setProperty("/klasse/T", true);
                 } else if (sValue == 'L') {

@@ -20,7 +20,6 @@ sap.ui.define([
 				oRouter.navTo("details");
 			}, this);
 
-
 			this.pruefeLogin();
 		},
 		setLoginDaten: function () {
@@ -29,9 +28,9 @@ sap.ui.define([
 				let oComponent = this.getOwnerComponent();
 				let m = oComponent.getModel("user");
 				let kDaten = JSON.parse(c);
-				m.setProperty("/EMail", kDaten.EMail);
-				m.setProperty("/Vorname", kDaten.Vorname);
-				m.setProperty("/Nachname", kDaten.Nachname);
+				m.setProperty("/EMail", kDaten.EMAIL);
+				m.setProperty("/Vorname", kDaten.VORNAME);
+				m.setProperty("/Nachname", kDaten.NACHNAME);
 			}
 		},
 		onExit: function () {
@@ -80,6 +79,7 @@ sap.ui.define([
 			m.setProperty("/EMail", "");
 			m.setProperty("/Vorname", "");
 			m.setProperty("/Nachname", "");
+			Cookie.setCookie("kunde", "", 1);
 			Cookie.eraseCookie("kunde");
 			this.pruefeLogin();
 			this.onHeaderPressed();

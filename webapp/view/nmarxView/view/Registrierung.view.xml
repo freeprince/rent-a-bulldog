@@ -20,65 +20,55 @@
 				</f:layout>
 				<f:formContainers>
 					<f:FormContainer ariaLabelledBy="Title2">
-						<f:formElements>
-							<f:FormElement label="Anrede">
-								<f:fields>
-									<Select width="30%" id="anrede" placeholder="Herr / Frau" selectedKey="{Kundendaten>/Anrede}"
-										items="{ path: 'Anrede>/AnredeCollection', sorter: { path: 'text' } }">
-										<items>
-											<core:Item key="{Anrede>text}" text="{Anrede>text}"/>
-										</items>
-									</Select>
-								</f:fields>
-							</f:FormElement>
+						<f:formElements>							
 							<f:FormElement label="Vorname">
 								<f:fields>
-									<Input value="{Kundendaten>/Vorname}" type="text"/>
+									<Input value="{Kundendaten>/VORNAME}" type="text"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Nachname">
 								<f:fields>
-									<Input value="{Kundendaten>/Nachname}" type="text"/>
+									<Input value="{Kundendaten>/NACHNAME}" type="text"/>
 								</f:fields>
 							</f:FormElement>
-							<f:FormElement label="Straße, Hausnummer">
+							<f:FormElement label="Straße (inkl. Hausnummer)">
 								<f:fields>
-									<Input value="{Kundendaten>/Straße}" type="text"/>
-									<Input value="{Kundendaten>/Hausnummer}" type="text">
-										<layoutData>
-											<l:GridData span="XL2 L1 M3 S4"/>
-										</layoutData>
-									</Input>
+									<Input value="{Kundendaten>/STRASSE}" type="text"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Plz, Ort">
 								<f:fields>
-									<Input value="{Kundendaten>/Plz}" type="text">
+									<Input value="{Kundendaten>/PLZ}" type="text">
 										<layoutData>
 											<l:GridData span="XL2 L1 M3 S4"/>
 										</layoutData>
 									</Input>
-									<Input value="{Kundendaten>/Ort}" type="text"/>
-								</f:fields>
-							</f:FormElement>
-							<f:FormElement label="Führerscheinnummer">
-								<f:fields>
-									<Input value="{Kundendaten>/FSchein}" type="text"/>
+									<Input value="{Kundendaten>/ORT}" type="text"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Geburtsdatum">
 								<f:fields>
-									<Input value="{Kundendaten>/Geburtsdatum}" type="text"/>
+									<Input value="{Kundendaten>/GEBURTSDATUM}" type="date"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Führerscheinnummer">
+								<f:fields>
+									<Input value="{Kundendaten>/FNR}" type="text"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Ausstelldatum des Führerscheins">
+								<f:fields>
+									<Input value="{Kundendaten>/ausstell_datum}" type="date"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="E-Mail *">
 								<f:fields>
-									<Input value="{Kundendaten>/EMail}" type="text"/>
+									<Input value="{Kundendaten>/EMAIL}" type="text"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Passwort *">
 								<f:fields>
-									<Input type="Password" value="{Kundendaten>/Passwort}"/>
+									<Input type="Password" value="{Kundendaten>/PASSWORT}"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Passwort bestätigen *">

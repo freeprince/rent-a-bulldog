@@ -4,19 +4,19 @@
     <Panel headerText="Unser Team">
         <HBox>
             <VBox class="sapUiSmallMargin" width="200px">
-                <Image src="https://ux5.edvschulen-plattling.de/~agabel/klasse/huber.png"
+                <Image src="images/huber.png"
                     height="150px"/>
                 <Title text="Huber Andreas"/>
                 <Text text="Head of Bulldogs"/>
             </VBox>
             <VBox class="sapUiSmallMargin" width="200px">
-                <Image src="https://ux5.edvschulen-plattling.de/~agabel/klasse/marx.png"
+                <Image src="images/marx.png"
                     height="150px"/>
                 <Text text="Marx Nelli"/>
                 <Text text="Head of Customer Login/Registration"/>
             </VBox>
             <VBox class="sapUiSmallMargin" width="200px">
-                <Image src="https://ux5.edvschulen-plattling.de/~agabel/klasse/foto.jpg"
+                <Image src="images/foto.jpg"
                     height="150px"/>
                 <Text text="Gabel Alexander"/>
                 <Text text="Head of Reservation"/>

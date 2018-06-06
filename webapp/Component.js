@@ -38,26 +38,34 @@ sap.ui.define([
             });
             this.setModel(oModelKunden, "Kundendaten");
 
-            // // Webservice Url
-            // let url = window.location.protocol + "//vpn.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
-            // // let url = window.location.protocol + "//ux5.edvschulen-plattling.de/~agabel/sap/proxy/ajax_proxy.php?route=/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
-            // //  Anmeldeheader
-            // var header = {
-            // 	"Authorization": "Basic " + btoa("f12:xaxt")
-            // };
-            // // parameter
-            // let params = {
-            //     json: true,
-            //     user: "",
-            //     password: "",
-            //     header: header
-            // };
-            // let oModelOdata = new ODataModel(url, params);
-            // // ohne folgende Attribute geht der odataServer nicht
-            // this.setModel(oModelOdata, "service");
-            // oModelOdata.bDisableHeadRequestForToken = true;
-            // oModelOdata.bUseBatch = false;
-            // oModelOdata.refresh();
+            // Webservice Url
+            let url = window.location.protocol + "//ux5.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
+            // let url = window.location.protocol + "//ux5.edvschulen-plattling.de/~agabel/sap/proxy/ajax_proxy.php?route=/sap/opu/odata/sap/ZANA_SEARCH_SERVICE/";
+            //  Anmeldeheader
+            var header = {
+            	"Authorization": "Basic " + btoa("f12:xaxt")
+            };
+            // parameter
+            let params = {
+                json: true,
+                user: "DEVELOP26",
+                password: "Th08ber!",
+                header: header
+            };
+            let oModelOdata = new ODataModel(url, params);
+            // ohne folgende Attribute geht der odataServer nicht
+            this.setModel(oModelOdata, "service");
+            oModelOdata.bDisableHeadRequestForToken = true;
+            oModelOdata.bUseBatch = false;
+            oModelOdata.refresh();
+
+            url = window.location.protocol + "//ux5.edvschulen-plattling.de/sap/opu/odata/sap/ZANA_KUNDE_SRV/";
+            oModelOdata = new ODataModel(url, params);
+            // ohne folgende Attribute geht der odataServer nicht
+            this.setModel(oModelOdata, "serviceKunde");
+            oModelOdata.bDisableHeadRequestForToken = true;
+            oModelOdata.bUseBatch = false;
+            oModelOdata.refresh();
 
             // set the device model
             let oModelDevice = models.createDeviceModel();
