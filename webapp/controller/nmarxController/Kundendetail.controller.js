@@ -11,8 +11,8 @@ sap.ui.define([
 	var CController = Controller.extend("rab.controller.nmarxController.Kundendetail", {
 
 		onInit: function () {
-			this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.getRoute("kundenDetail").attachMatched(this.handleRouteMatched, this);
 		},
 
 		handleRouteMatched: function (evt) {
